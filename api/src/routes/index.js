@@ -55,11 +55,7 @@ async function breedsALL(){
 async function temperaments(){
     let tem1 = await axios.get(`https://api.thedogapi.com/v1/breeds`);
     let tem2 = tem1.data.map(b => b.temperament).join(', ').split(', ');
-    tem2.forEach(te => {
-        Temperament.findOrCreate({
-            where: {name: te},
-        });
-    });
+    tem2.forEach(te => { Temperament.findOrCreate({where: {name: te}}); });
 
     let tem3 = await Temperament.findAll();
     return (tem3);
