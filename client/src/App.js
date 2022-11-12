@@ -1,15 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import home from './Components/home/home'
-import landing from './Components/landing/landing'
+import Home from './Components/home/home'
+import Landing from './Components/landing/landing'
 
 export default function App() {
   return (
     <Router>
     <div className="App">
-      <Route exact path='/' component={landing}/>
-      <Route exact path='/home' component={home}/>
+      <Route exact path='/' component={Landing}/>
+      <Route exact path='/home' component={Home}/>
     </div>
     </Router>
   );

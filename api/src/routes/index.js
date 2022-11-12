@@ -51,6 +51,12 @@ async function breedsALL(){
     return (dogs3);
 };
 
+function searchBreed(array, name){
+    let find1 = array.filter(el => el.name.toLowerCase().includes(name.toLowerCase()));
+    if(find1.length) return (find1);
+    return ('Error')
+};
+
 
 async function temperaments(){
     let tem1 = await axios.get(`https://api.thedogapi.com/v1/breeds`);
@@ -91,8 +97,8 @@ router.get('/dogs', async function(req, res, next){
     if(!name) return res.status(200).json(dogsAll);
 
     let search = searchBreed(dogsAll, name);
-    if (search === 'Error') res.status(404).send('Name not found');
-    res.status(200).json(search);
+    if (search === 'Error') return res.status(404).send('Name not found');
+    return res.status(200).json(search);
 });
 
 
