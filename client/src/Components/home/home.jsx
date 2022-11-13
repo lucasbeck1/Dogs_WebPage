@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import s from "./home.module.css";
-import {getBreeds, getBreedsByName} from '../../Redux/actions';
+import {getBreeds, getBreedsByName, getTemperaments, filters, orders} from '../../Redux/actions';
 import Card from "../card/card";
 import Paginated from "../paginated/paginated";
 
@@ -12,12 +12,14 @@ export default function Home(){
 
     // Global states
     const dispatch = useDispatch();
-    const breeds = useSelector(state => state.breeds)
+    const breeds = useSelector(state => state.breeds);
     const allbreeds = useSelector(state => state.allbreeds);
+    const temperaments = useSelector(state => state.temperaments)
 
 
     useEffect(()=>{
-        dispatch(getBreeds())
+        dispatch(getBreeds());
+        dispatch(getTemperaments());
     },[dispatch]);
 
 
@@ -43,6 +45,7 @@ export default function Home(){
         setCurrentPage(1);
     };
 
+
     async function search(e){
         if(allbreeds.some(g=>g.name.toLowerCase().includes(name.toLowerCase()))){
             e.preventDefault();
@@ -56,12 +59,33 @@ export default function Home(){
         }
     };
 
+
+    function orderD(e){
+        e.preventDefault();
+        dispatch(orders(e.target.value));
+        setCurrentPage(1);
+        setOrder(`Order ${e.target.value}`);
+        // Esto se necesita porque al aplicar un sort, a diferecia de un filter, React no detecta cambios en nuestro estado y por eso no se actualizaría
+        document.getElementById('name').selectedIndex = 'DEFAULT';
+        document.getElementById('weight').selectedIndex = 'DEFAULT';
+    };
+    
+
+    function filterD(e){
+        e.preventDefault();
+        dispatch(filters(e.target.value));
+        setCurrentPage(1);
+        document.getElementById('storage').selectedIndex = 'DEFAULT';
+        document.getElementById('breeds').selectedIndex = 'DEFAULT';
+    };
+
   
     
 
 
 return(
     <React.Fragment>
+
         <div className={s.header}>
             <div>
                 <input id='SearchInput' type='text' onChange={e => setName(e.target.value)} placeholder="Search..."/>
@@ -73,11 +97,45 @@ return(
                 <Link to='/create'><button>Create</button></Link>
             </div>
         </div>
+
+        <div className={s.nav}>
+            <button onClick={e => clean(e)}>Clean</button>
+            <h4>Filter by</h4>
+            <label htmlFor='storage'>Storage</label>
+            <select id='storage' onChange={(e) => filterD(e)} defaultValue={'DEFAULT'}>
+                <option value='DEFAULT' disabled>Storage</option>
+                <option value='All'>All</option>
+                <option value='Api'>Api</option>
+                <option value='Db'>Library</option>
+            </select>
+            <label htmlFor='breeds'>Breeds</label>
+            <select id='breeds' onChange={(e) => filterD(e)} defaultValue={'DEFAULT'}>
+                <option value='DEFAULT' disabled>Breeds</option>
+                <option value='All'>All</option>
+                {temperaments?.map(element => {
+                return(<option value={element} key={element}>{element}</option>) 
+                })}
+            </select>
+            <h4>Order by</h4>
+            <label htmlFor='name'>Name</label>
+            <select id='name' onChange={(e) => orderD(e)} defaultValue={'DEFAULT'}>
+                <option value='DEFAULT' disabled>Alphabetical</option>
+                <option value='A-Z'>A-Z</option>
+                <option value='Z-A'>Z-A</option>
+            </select>
+            <label htmlFor='weight'>Weight</label>
+            <select id='weight' onChange={(e) => orderD(e)} defaultValue={'DEFAULT'}>
+                <option value='DEFAULT' disabled>Weight</option>
+                <option value='High weight'>High Weight</option>
+                <option value='Low weight'>Low Weight</option>
+            </select>
+        </div>
+
         <div>
             <Paginated dogsTotal={breeds.length} dogsPage={cardsPerPage} pag={changePage}/>
             <div>
                 {currentCards.map(g=>{return(
-                    <Card id={g.id} name={g.name} img={g.image}/>
+                    <Card id={g.id} name={g.name} img={g.image} weight={g.weight} temp={g.temperament}/>
                 )})}
             </div>
         </div>

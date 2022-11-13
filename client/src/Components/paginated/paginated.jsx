@@ -20,11 +20,11 @@ return(
 
 /* 
 
-if dogs = 100
-dog per page = 15
+if dogs = 172
+dog per page = 8
 
-100/15 = 6.66 --> 7
+172/8 = 21.5 --> 22
 
-pageNumber = [1,2,3,4,5,6,7]
+pageNumber = [1,2,3,4, ... ,22]
 
 */
