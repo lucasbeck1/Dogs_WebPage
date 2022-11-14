@@ -35,8 +35,7 @@ export function getTemperaments(){
         return fetch(`http://localhost:3001/temperaments`)
         .then(response => response.json())
         .then(data => {
-            let data1 = data.map(t=>t.name)
-            dispatch({type: GET_TEMPERAMENTS, payload: data1});
+            dispatch({type: GET_TEMPERAMENTS, payload: data});
         })
     })
 };
@@ -55,5 +54,24 @@ export function filters(payload){
     return({
         type: FILTER_BREEDS,
         payload
+    });
+};
+
+
+
+export function createBreed(payload){
+    return( async function(){
+
+        fetch("http://localhost:3001/dogs",
+        {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(payload)
+        })
+        .then(function(res){ console.log(res) })
+        .catch(function(res){ console.log(res) })
     });
 };

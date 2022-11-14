@@ -1,8 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Home from './Components/home/home'
-import Landing from './Components/landing/landing'
+import Home from './Components/home/home';
+import Landing from './Components/landing/landing';
+import CreateForm from './Components/createForm/createForm';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
     <div className="App">
       <Route exact path='/' component={Landing}/>
       <Route exact path='/home' component={Home}/>
+      <Route exact path='/create' component={CreateForm}/>
     </div>
     </Router>
   );

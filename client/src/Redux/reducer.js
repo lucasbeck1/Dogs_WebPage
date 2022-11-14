@@ -12,7 +12,10 @@ export default function rootReducer(state=initialState, action){
         
         case GET_BREEDS_BYNAME: return({...state, breeds: action.payload}); 
         
-        case GET_TEMPERAMENTS: return({...state, temperaments: action.payload});
+        case GET_TEMPERAMENTS: 
+            let data1 = action.payload.map(t=>t.name);
+            data1 = data1.sort();
+            return({...state, temperaments: data1});
 
         case FILTER_BREEDS:
             let actualbreeds = state.allbreeds.slice();
@@ -42,7 +45,6 @@ export default function rootReducer(state=initialState, action){
                 if (a.name.toLowerCase() < b.name.toLowerCase()) {
                 return -1;
                 }
-                // a must be equal to b
                 return 0;
             });
         }
