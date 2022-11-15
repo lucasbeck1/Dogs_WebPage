@@ -133,9 +133,9 @@ return(
 
         <div>
             <Paginated dogsTotal={breeds.length} dogsPage={cardsPerPage} pag={changePage}/>
-            <div>
-                {currentCards.map(g=>{return(
-                    <Card id={g.id} name={g.name} img={g.image} weight={g.weight} temp={g.temperament}/>
+            <div className={s.list}>
+                {currentCards.map(b=>{return(
+                    <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
                 )})}
             </div>
         </div>

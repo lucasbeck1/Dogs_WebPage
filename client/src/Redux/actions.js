@@ -3,6 +3,9 @@ export const GET_BREEDS_BYNAME = 'GET_BREEDS_BYNAME';
 export const ORDER_BREEDS = 'ORDER_BREEDS';
 export const FILTER_BREEDS = 'FILTER_BREEDS';
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
+export const GET_DETAIL = 'GET_DETAIL';
+export const CLEAR_DETAIL = 'CLEAR_DETAIL';
+
 
 
 
@@ -73,5 +76,24 @@ export function createBreed(payload){
         })
         .then(function(res){ console.log(res) })
         .catch(function(res){ console.log(res) })
+    });
+};
+
+
+export function getDetail(id){
+    return(async function (dispatch) {
+        fetch(`http://localhost:3001/dogs/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            dispatch({type: GET_DETAIL, payload: data});
+        })
+        .catch(e => console.log(e));
+        
+    });
+};
+
+export function clearDetail(){
+    return({
+        type: CLEAR_DETAIL,
     });
 };

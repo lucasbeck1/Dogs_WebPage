@@ -78,23 +78,52 @@
 
 
 
-.listGenres{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 8rem;
-    margin-right: 6rem;
-    padding-left: 2rem;
+.listTemp{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 10px;
+   /*  background-color: #2196F3; */    
 }
 
-.listPlatforms{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 8rem;
-    margin-right: 6rem;
-    padding-left: 2rem;
-    color: #999
+
+.btnTempON{
+    width: 90%; 
+    color: #080708;
+    background-color: rgb(233, 194, 245);
+    border: 5px solid;
+    border-color: rgb(164, 60, 196);
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.btnTempON:hover{
+    color: #080708;
+    border: 5px solid;
+    border-color: rgb(211, 91, 248);
+    background-color: rgb(233, 194, 245);
+    box-shadow: 20px;
+}
+
+
+.btnTempOFF{
+    width: 90%;
+    color: #080708;
+    background-color: rgb(255, 255, 255);
+    border: 5px solid;
+    border-color: rgb(202, 200, 200);
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.btnTempOFF:hover{
+    color: #080708;  
+    border: 5px solid;
+    border-color: rgb(116, 116, 116);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 20px;
 }
 
 
@@ -105,12 +134,9 @@
 
 
 
-
-.gamePreview{
+.dogPreview{
     margin: 0 auto;
     width: 20rem;
-    padding: 1rem;
-    color: #999
-
+    height: 20rem;
+    padding: 10rem;
 }
-

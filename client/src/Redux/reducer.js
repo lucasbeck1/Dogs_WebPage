@@ -1,9 +1,10 @@
-import { GET_BREEDS, GET_BREEDS_BYNAME, GET_TEMPERAMENTS, ORDER_BREEDS, FILTER_BREEDS } from './actions';
+import { GET_BREEDS, GET_BREEDS_BYNAME, GET_TEMPERAMENTS, ORDER_BREEDS, FILTER_BREEDS, GET_DETAIL, CLEAR_DETAIL } from './actions';
 
 let initialState = {
     breeds: [],
     allbreeds: [],
-    temperaments: []
+    temperaments: [],
+    detail:{}
 };
 
 export default function rootReducer(state=initialState, action){
@@ -23,8 +24,8 @@ export default function rootReducer(state=initialState, action){
             const filter = action.payload;
             let temperaments = state.temperaments;
         
-            
-            if(filter === 'Api'){actualbreeds = actualbreeds.filter(g => g.createdInDatabase === false)}
+            if(filter === 'All'){actualbreeds = state.allbreeds}
+            else if(filter === 'Api'){actualbreeds = actualbreeds.filter(g => g.createdInDatabase === false)}
             else if(filter === 'Db'){actualbreeds = actualbreeds.filter(g => g.createdInDatabase === true)}
             else if(temperaments.includes(filter)){actualbreeds = actualbreeds.filter(g => g.temperament.includes(filter))}
 
@@ -85,6 +86,10 @@ export default function rootReducer(state=initialState, action){
                 ...state,
                 breeds: actualbreeds2
         });
+
+        case GET_DETAIL: return({...state, detail: action.payload});
+
+        case CLEAR_DETAIL: return({...state, detail: {}});
 
 
         default: return(state);   
