@@ -8,8 +8,12 @@
 }
 
 .header h2{
-    color: rgb(16, 56, 129);
+    color: rgb(250, 214, 146);
     margin-right: 4.5rem;
+}
+
+.header input{
+    border: solid 2px wheat;
 }
 
 .nav{
@@ -22,6 +26,10 @@
     left:0%;
     width: 10%;
     margin-top: 1rem;
+}
+
+.nav select{
+    border: solid 2px wheat;
 }
 
 .list{
@@ -38,8 +46,9 @@
 
 /* No Anda el module cuando no usamos clases o ids */
 .header button{
-    color: #FF1cff;
-    background-color: rgb(16, 56, 129);
+    color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    border: solid 2px wheat;
     border-radius: 3px;
     padding: 0.5rem;
     margin: 0.1rem;
@@ -47,8 +56,9 @@
 
 
 .header button:hover{
-    color: #FF1cff;
-    background-color: rgb(0, 228, 228);
+    color:rgb(0, 0, 0);
+    background-color:rgb(242, 191, 252);
+    border: solid 2px wheat;
     box-shadow: 20px;
 }
 
@@ -57,3 +67,19 @@
     height: 1.5rem;
 }
 
+
+.btn{
+    margin: 0.2rem;
+    padding: 0.4rem;
+    color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    border: solid 2px wheat;
+}
+    
+
+.btn:hover{
+    padding: 0.4rem;
+    color:rgb(0, 0, 0);
+    background-color:rgb(242, 191, 252);
+    border: solid 2px wheat;
+}

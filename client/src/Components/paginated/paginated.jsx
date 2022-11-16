@@ -1,7 +1,7 @@
 import React from "react";
+import s from "./paginated.module.css";
 
-
-export default function Paginated({dogsTotal, dogsPage, pag}){
+export default function Paginated({dogsTotal, dogsPage, select, nextSelect, prevSelect}){
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(dogsTotal/dogsPage); i++) {
@@ -10,10 +10,12 @@ export default function Paginated({dogsTotal, dogsPage, pag}){
 
 return(
     <React.Fragment>
-        <nav>
+        <nav className={s.nav}>
+            <button onClick={()=>prevSelect()} className={s.number}>{'<'}</button>
             {pageNumbers?.map( number => { return(
-                <button onClick={()=>pag(number)} key={number}>{number}</button>
-            )}  )}
+                <button onClick={()=>select(number)} key={number} className={s.number}>{number}</button>
+            )})}
+            <button onClick={()=>nextSelect(pageNumbers[pageNumbers.length-1])} className={s.number}>{'>'}</button>
         </nav>
     </React.Fragment>
 )};

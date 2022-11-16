@@ -3,19 +3,25 @@
 }
 
 .card{
-    border:2px solid rgb(24, 6, 56);
-    border-radius: 3px;
+    border:1px solid wheat;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #969090b9;
-    width:340px;
-    height: 380px;
-    color: rgb(46, 95, 95)
- }
+    width: 340px;
+    height: auto;
+    color: rgb(63, 56, 44);
+}
 
- .image{
+
+.card p{
+    padding: 0px;
+    margin: 3px;
+}
+
+.image{
     width:340px; 
     height:200px;
     border-radius: 3px
- }
+}

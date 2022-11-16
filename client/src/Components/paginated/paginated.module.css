@@ -1,0 +1,31 @@
+.nav{
+margin-top: 1rem;
+margin-bottom: 1rem;
+
+}
+
+.number{
+    width: 2rem;
+    margin: 0.2rem;
+    padding: 0.4rem;
+    color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    border: solid 2px wheat;
+}
+
+.number:hover{
+    padding: 0.4rem;
+    color:rgb(0, 0, 0);
+    background-color:rgb(242, 191, 252);
+    border: solid 2px wheat;
+}
+
+.number:focus{
+    width: 2.2rem;
+    border: solid 4px wheat;
+    background-color:rgb(223, 123, 243);
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+}

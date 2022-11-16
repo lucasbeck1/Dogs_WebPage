@@ -1,6 +1,7 @@
 .homeButton{
-    color: #FF1cff;
-    background-color: rgb(0, 228, 228);
+   color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    border: solid 2px wheat;
     border-radius: 3px;
     padding: 0.5rem;
     width: 15rem;
@@ -8,9 +9,9 @@
 }
 
 .homeButton:hover{
-    color: #FF1cff;
-    background-color: rgb(16, 56, 129);
-    box-shadow: 20px;
+    color:rgb(0, 0, 0);
+    background-color:rgb(242, 191, 252);
+    border: solid 2px wheat;
 }
 
 
