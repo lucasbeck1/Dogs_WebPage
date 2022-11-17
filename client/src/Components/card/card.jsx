@@ -24,7 +24,7 @@ export default function Card({id, name, img, weight, temp}){
             <div key={id} onClick={e => detailB(e)} className={s.card}>
                 <h4>{name}</h4>
                 <p>{weight} Kg</p>
-                <p>{temp? (temp) : ('Loyal')}</p>
+                <p>{temp? (temp) : ('Loyal, like all Dogs')}</p>
                 <img src={img? (img) : (defaulImage)} alt='Dog'className={s.image}/>
             </div>
         </Link>

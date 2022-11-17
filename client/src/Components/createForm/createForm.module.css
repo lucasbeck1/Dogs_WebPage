@@ -17,8 +17,8 @@
 
 
 .submittButton1{
-    color: #FF1cff;
-    background-color: rgb(0, 228, 228);
+    color:rgb(0, 0, 0);
+    background-color:rgb(237, 187, 247);
     border: 10px solid black;
     border-radius: 3px;
     width: 20rem;
@@ -26,15 +26,15 @@
 }
 
 .submittButton1:hover{
-    color: #FF1cff;
-    background-color: rgb(16, 56, 129);
+    color:rgb(0, 0, 0);
+    background-color:rgb(231, 145, 248);
     box-shadow: 20px;
 }
 
 
 .submittButton2{
     color: #461b46;
-    background-color: rgb(113, 172, 172);
+    background-color: rgb(139, 175, 175);
     border: 10px solid black;
     border-radius: 3px;
     width: 20rem;

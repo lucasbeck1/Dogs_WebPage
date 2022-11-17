@@ -9,9 +9,45 @@ let initialState = {
 
 export default function rootReducer(state=initialState, action){
     switch(action.type){
-        case GET_BREEDS: return({...state, breeds: action.payload, allbreeds: action.payload}); 
+        case GET_BREEDS: 
+             let dataBreeds = action.payload;
+            
+            for(let i=0; i<dataBreeds.length; i++){
+                if(dataBreeds[i].createdInDatabase === true) {
+                    dataBreeds[i] = ({
+                        id: dataBreeds[i].id,
+                        name: dataBreeds[i].name,
+                        height: dataBreeds[i].height,
+                        weight: dataBreeds[i].weight,
+                        life_span: dataBreeds[i].life_span,
+                        image:  dataBreeds[i].image,
+                        createdInDatabase: dataBreeds[i].createdInDatabase,
+                        temperament: dataBreeds[i].Temperaments.map(el=>el.name).join(', ')
+                    })
+                };
+            };
+
+            return({...state, breeds: dataBreeds, allbreeds: dataBreeds}); 
         
-        case GET_BREEDS_BYNAME: return({...state, breeds: action.payload}); 
+        case GET_BREEDS_BYNAME:
+            
+            let dataBreedsByname = action.payload;
+            for(let i=0; i<dataBreedsByname.length; i++){
+                if(dataBreedsByname[i].createdInDatabase === true) {
+                    dataBreedsByname[i] = ({
+                        id: dataBreedsByname[i].id,
+                        name: dataBreedsByname[i].name,
+                        height: dataBreedsByname[i].height,
+                        weight: dataBreedsByname[i].weight,
+                        life_span: dataBreedsByname[i].life_span,
+                        image:  dataBreedsByname[i].image,
+                        createdInDatabase: dataBreedsByname[i].createdInDatabase,
+                        temperament: dataBreedsByname[i].Temperaments.map(el=>el.name).join(', ')
+                    })
+                };
+            };
+
+            return({...state, breeds: action.payload}); 
         
         case GET_TEMPERAMENTS: 
             let data1 = action.payload.map(t=>t.name);
@@ -20,7 +56,7 @@ export default function rootReducer(state=initialState, action){
 
         case FILTER_BREEDS:
             let actualbreeds = state.allbreeds.slice();
-            actualbreeds = actualbreeds.filter(g=> g.temperament !== undefined)
+            //actualbreeds = actualbreeds.filter(g=> g.temperament !== undefined)
             const filter = action.payload;
             let temperaments = state.temperaments;
         
@@ -87,7 +123,21 @@ export default function rootReducer(state=initialState, action){
                 breeds: actualbreeds2
         });
 
-        case GET_DETAIL: return({...state, detail: action.payload});
+        case GET_DETAIL: 
+            let detailD = action.payload;
+            if(detailD.createdInDatabase === true) {
+                detailD = ({
+                    id: detailD.id,
+                    name: detailD.name,
+                    height: detailD.height,
+                    weight: detailD.weight,
+                    life_span: detailD.life_span,
+                    image:  detailD.image,
+                    createdInDatabase: detailD.createdInDatabase,
+                    temperament: detailD.Temperaments.map(el=>el.name).join(', ')
+                })
+            };
+            return({...state, detail: detailD});
 
         case CLEAR_DETAIL: return({...state, detail: {}});
 

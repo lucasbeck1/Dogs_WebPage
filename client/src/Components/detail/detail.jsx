@@ -10,7 +10,9 @@ import s from "./detail.module.css";
 
 export default function Detail (props){
     const detailB = useSelector(state => state.detail);
+    if(detailB.createdInDatabase) detailB.life_span = detailB.life_span + ' years';
     
+
     /* 
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -62,7 +64,7 @@ return(
                 <h2>{detailB.name}</h2>
             </div>
             <img src={detailB.image? (detailB.image) : (defaultImage)} alt="Img Not Found" className={s.image}/>
-            <p className={s.description}>{detailB.temperament}</p>
+            <p className={s.description}>{detailB.temperament? (detailB.temperament) : ('Loyal, like all Dogs')}</p>
 
             <div className={s.downText}>
                 <div className={s.container}>

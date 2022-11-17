@@ -24,7 +24,7 @@ async function breedsFromApi(){
         weight: el.weight.metric,
         life_span: el.life_span,
         image: el.image.url,
-        temperament: el.temperament,
+        temperament: el.temperament? el.temperament : 'Loyal',
         createdInDatabase: false
       })  
     });
@@ -33,13 +33,24 @@ async function breedsFromApi(){
 
 
 async function breedsFromDB(){
-    let br = Breed.findAll({
+    let br = await Breed.findAll({
         include:{
             model: Temperament,
             attribute: ['name'],
             through: {attributes: []}
         }
     });
+
+    let br1 = JSON.stringify(br);
+    let br2 = JSON.parse(br1);
+
+    for(let i=0; i<br2.length; i++){
+        br2[i]={
+            ...br2[i],
+            temperament: br2[i].Temperaments.map(g=>g.name).join(', ')
+        };
+    };
+
     return(br);
 };
 

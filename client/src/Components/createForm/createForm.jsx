@@ -107,7 +107,7 @@ function handleDeSelect(e){
 function validate(input){
     let error = {};
     if(!input.name){error.name = 'Please write a name'}
-    else if(input.name.length > 45){error.name = 'The name is too long'}
+    else if(input.name.length > 40){error.name = 'The name is too long'}
     else if(dogsList.some(g => g.name.toLowerCase() === input.name.toLowerCase())){error.name = 'The Breed already exist'};
 
     if(!input.height_min){error.height = 'Min Height required'}
@@ -303,14 +303,24 @@ return(
                 <div className={s.listTemp}>
                 {tempList.map((gen => (
                    
-                    input.temperament.includes(gen) ? 
+                    /* input.temperament.includes(gen) ? 
                     (<div key={`${gen}`}>
                         <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
                     </div>) 
                     : 
                     (<div key={`${gen}`}>
                         <button className={s.btnTempOFF} onClick={e => handleSelect(e)} value={gen}>{gen}</button>
-                    </div>)
+                    </div>) */
+
+
+                    input.temperament.includes(gen) ? 
+                    (<div key={`${gen}`}>
+                        <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
+                    </div>) 
+                    : 
+                    (<>
+                    </>)
+
                 
                 )))}
                 </div>
