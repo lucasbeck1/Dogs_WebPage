@@ -157,7 +157,9 @@ return(
             dogsPage={cardsPerPage} 
             select={changePage} 
             prevSelect={previousPage}
-            nextSelect={nextPage} />
+            nextSelect={nextPage} 
+            actualPage={parseInt(currentPage)}
+            />
 
             <div className={s.list}>
                 {currentCards.map(b=>{return(

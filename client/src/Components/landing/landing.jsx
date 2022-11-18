@@ -18,3 +18,19 @@ return(
         </div>
     </React.Fragment>
 )};
+
+
+
+/* 
+Mod landing,
+mostrar de a 10 numeros
+añadir idiomas (switch), 
+tema oscuro, 
+fondo en imagenes, 
+responsive,
+previsualizacion loading
+-
+eliminar razas,
+autorizacion,
+deploy: railway, netlify, render, vercel. Recuerden que estas son gratuitas y heroku dejará de serlo a fin de año, por lo que si deployan su proyecto en heroku, luego lo perderían
+*/

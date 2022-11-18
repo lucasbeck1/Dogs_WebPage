@@ -41,6 +41,7 @@ async function breedsFromDB(){
         }
     });
 
+    /* 
     let br1 = JSON.stringify(br);
     let br2 = JSON.parse(br1);
 
@@ -50,6 +51,7 @@ async function breedsFromDB(){
             temperament: br2[i].Temperaments.map(g=>g.name).join(', ')
         };
     };
+    */
 
     return(br);
 };

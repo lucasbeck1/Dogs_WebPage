@@ -120,7 +120,16 @@ function validate(input){
 
     if(!input.life_span){error.life_span = 'Life Span value required'};
 
-    if(!input.image){error.image = 'Please insert the image link'};
+    if(!input.image){error.image = 'Please insert the image link'}
+    else if(input.image.slice(-3) !== 'bmp' &&
+    input.image.slice(-3) !== 'jpg' &&
+    input.image.slice(-4) !== 'jpeg' &&
+    input.image.slice(-3) !== 'jpg' &&
+    input.image.slice(-3) !== 'tif' &&
+    input.image.slice(-4) !== 'tiff' &&
+    input.image.slice(-3) !== 'png' &&
+    input.image.slice(-3) !== 'svg')
+    {error.image = 'This link is not a valid image'};
 
     if(!input.temperament.length){error.temperament = 'Select at least one Temperament'};
     

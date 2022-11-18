@@ -22,10 +22,10 @@ export default function Card({id, name, img, weight, temp}){
     return(
         <Link to={`/detail/${id}`} className={s.det}>
             <div key={id} onClick={e => detailB(e)} className={s.card}>
+                <img src={img? (img) : (defaulImage)} alt='Dog'className={s.image}/>
                 <h4>{name}</h4>
                 <p>{weight} Kg</p>
                 <p>{temp? (temp) : ('Loyal, like all Dogs')}</p>
-                <img src={img? (img) : (defaulImage)} alt='Dog'className={s.image}/>
             </div>
         </Link>
     );
