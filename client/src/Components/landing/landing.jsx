@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import s from "./landing.module.css";
+import { getBreeds, getTemperaments } from '../../Redux/actions';
+import loader from "../../Assets/loader-10.gif";
 
 
 export default function Landing(){
+
+
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getBreeds());
+        dispatch(getTemperaments());
+    },[dispatch]);
 
 return(
     <React.Fragment>
@@ -29,6 +39,9 @@ tema oscuro,
 fondo en imagenes, 
 responsive,
 previsualizacion loading
+cretae form: ranges veritcal y dinamicos
+modularizar los svg dentro de assets y requerirlos en el detail
+clases para los colores y botones
 -
 eliminar razas,
 autorizacion,

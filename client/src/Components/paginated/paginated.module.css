@@ -21,6 +21,11 @@ margin-bottom: 1rem;
     border: solid 2px wheat;
 }
 
+.number:active{
+    background-color:rgb(207, 110, 226);
+}
+
+
 /* .number:focus{
     width: 2.2rem;
     border: solid 4px wheat;

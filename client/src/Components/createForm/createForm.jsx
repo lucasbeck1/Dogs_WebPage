@@ -353,7 +353,7 @@ return(
 
         <div className={s.dogPreview}>
             <Card 
-            id='1'
+            id='NO LINK'
             name={input.name? (input.name) : ('YOUR DOG')} 
             img={input.image? (input.image) : (defaultImage)}
             weight={(input.weight_min && input.weight_max)? ([input.weight_min, ' - ' , input.weight_max].join(' ')) : ('Min - Max')}

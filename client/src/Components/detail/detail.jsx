@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail, clearDetail } from "../../Redux/actions"
 import Loading from "../loading/loading";
-import defaultImage from "../../Assets/dog-cartoon-1.webp"
+import defaultImage from "../../Assets/dog-cartoon-1.webp";
+import loader from "../../Assets/loader-9.gif";
 import s from "./detail.module.css";
 
 
@@ -13,15 +14,15 @@ export default function Detail (props){
     if(detailB.createdInDatabase) detailB.life_span = detailB.life_span + ' years';
     
 
-    /* 
-    const dispatch = useDispatch();
+    // Mostrar loading
+    /*   const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id));
         return () => {dispatch(clearDetail())}
-    },[dispatch, props.match.params.id])
-   */
-
-
+    },[dispatch, props.match.params.id]) */
+    // Luego agregar el condicional:
+    // {Object.keys(detailG).length > 0 ?
+  
     
     // Otra forma de mostrar el loading
     let idB = (detailB.id)?.toString();
@@ -31,27 +32,14 @@ export default function Detail (props){
     },[idB, props.match.params.id]);
     // Luego agregar el condicional:
     // {idB === props.match.params.id ?
-    
-
-    
-    //Styles
-    const styleDiv = {
-    // backgroundColor: "rgba(255, 228, 196, 0.664)",
-    /*  backgroundImage: 'url(' + detailB.image + ')',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat', */
-    };
-    
-
 
 
 return(
     <React.Fragment>
-        {/* {Object.keys(detailB).length > 0 ? */}
-        {idB === props.match.params.id ?
-    (<div style={styleDiv}>
-        
-      
+       
+    {idB === props.match.params.id ?
+    (<div>
+    
         <Link to={`/home`} className={s.link}>
         <div className={s.homeButton}>
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 27.52L25 212.3v41L256 68.48 487 253.3v-41L256 27.52zm0 64L73 237.9V487h94c.1-32.3.8-79.5 10.2-121 5.2-22.7 12.9-43.9 25.4-60 12.6-16.2 30.7-27 53.4-27s40.8 10.8 53.4 27c12.5 16.1 20.2 37.3 25.4 60 9.4 41.5 10.1 88.7 10.2 121h94V237.9L256 91.52zM163.9 198.2a25.03 14.73 15.04 0 1 12.1 2.2 25.03 14.73 15.04 0 1 17.7 14.6h124.6a14.73 25.03 74.96 0 1 17.7-14.6 14.73 25.03 74.96 0 1 12.1-2.2 14.73 25.03 74.96 0 1 17.8 7.8 14.73 25.03 74.96 0 1-13 19.6 25.03 14.73 15.04 0 1 10.7 18.4 25.03 14.73 15.04 0 1-29.9 5.7 25.03 14.73 15.04 0 1-18.1-16.7H196.4a14.73 25.03 74.96 0 1-18.1 16.7 14.73 25.03 74.96 0 1-29.9-5.7 14.73 25.03 74.96 0 1 10.7-18.4 25.03 14.73 15.04 0 1-13-19.6 25.03 14.73 15.04 0 1 17.8-7.8z"></path></svg>
@@ -91,9 +79,9 @@ return(
         </div>
     </div>) 
 
-    : ( <div style={styleDiv}>
+    : ( <div>
     <Link to={`/home`} className={s.link}><p className={s.homeButton}>Home</p></Link>
-        <Loading/>
+        <Loading loadImg={loader}/>
     </div>)}
     </React.Fragment>
 )};

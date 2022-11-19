@@ -19,12 +19,12 @@ export default function Home(){
     const temperaments = useSelector(state => state.temperaments)
 
 
+    /* 
     useEffect(()=>{
         dispatch(getBreeds());
         dispatch(getTemperaments());
     },[dispatch]);
-
-
+    */
     
     // Local states (paginated)
     const [currentPage, setCurrentPage] = useState(1);
@@ -91,22 +91,20 @@ export default function Home(){
 return(
     <React.Fragment>
 
-        {allbreeds.length? (
-            <>
-            <div className={s.header}>
+        <div className={s.header}>
             <div>
                 <form>
                     <input id='SearchInput' type='text' onChange={e => setName(e.target.value)} placeholder="Search..."/>
-                    <button  onClick={e => search(e)} type="submit">
+                    <button  onClick={e => search(e)} type="submit" className={s.btn}>
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>Browser svg no compatible</svg>
                     </button>
                 </form>
             </div>
             <h2>Lucky DOG Browser</h2>
             <div>
-                <Link to='/'><button>To Landing</button></Link>
+                <Link to='/'><button className={s.btn}>To Landing</button></Link>
                 <Link to='/create'>
-                    <button>
+                    <button className={s.btn}>
                         New <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="1em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"></path></svg>
 
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,18 L12,6 M6,12 L18,12"></path></svg>
@@ -151,6 +149,8 @@ return(
             </select>
         </div>
 
+
+        {allbreeds.length? (
         <div>
             <Paginated 
             dogsTotal={breeds.length} 
@@ -166,8 +166,7 @@ return(
                     <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
                 )})}
             </div>
-        </div>
-        </>
+        </div>  
         ) : (<Loading loadImg={loader}/>)}
         
     </React.Fragment>

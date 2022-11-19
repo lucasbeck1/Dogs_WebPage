@@ -14,12 +14,40 @@
     color: rgb(63, 56, 44);
 }
 
+.card:hover{
+    background-color:  #c7c3c3af;
+    color:rgb(90, 74, 46);
+}
+
+
 .card h4{
     padding: 0px;
     margin: 7px;
 }
 
 .card p{
+    padding: 0px;
+    margin: 3px;
+}
+
+.cardStatic{
+    border:1px solid wheat;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #969090b9;
+    width: 340px;
+    height: auto;
+    color: rgb(63, 56, 44);
+}
+
+.cardStatic h4{
+    padding: 0px;
+    margin: 7px;
+}
+
+.cardStatic p{
     padding: 0px;
     margin: 3px;
 }
