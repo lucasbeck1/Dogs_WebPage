@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { createBreed, getBreeds, getTemperaments } from "../../Redux/actions";
+import React, { useState } from "react";
+import { createBreed } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 
@@ -11,162 +11,127 @@ import s from "./createForm.module.css";
 
 
 export default function CreateForm (){
+    // Global States
+    const dispatch = useDispatch();
+    const dogsList = useSelector(state => state.allbreeds);
+    const tempList = useSelector(state => state.temperaments);
+    const history = useHistory();
 
-// Global States
-const dispatch = useDispatch();
-const dogsList = useSelector(state => state.allbreeds);
-const tempList = useSelector(state => state.temperaments);
-const history = useHistory();
-
-
-useEffect(()=>{
-    dispatch(getBreeds());
-    dispatch(getTemperaments());
-},[dispatch]);
-
-
-
-// Local states
-const [input, setInput] = useState({
-    name:'',
-    image: '',
-    height_min: '',
-    height_max: '',
-    weight_min: '',
-    weight_max: '',
-    life_span: '',
-    temperament: []
-});
-const [error, setError] = useState({});
-
-
-
-
-// Function
-function handleChange(e){
-    setInput({
-        ...input,
-        [e.target.name]: e.target.value
+    // Local states
+    const [input, setInput] = useState({
+        name:'',
+        image: '',
+        height_min: '',
+        height_max: '',
+        weight_min: '',
+        weight_max: '',
+        life_span: '',
+        temperament: []
     });
-    // console.log(input)
-    // Como la actualizacion del estado es algo asincrónico lo voy a ver reflejado "tarde" a los cambios
-    setError(validate({
-        ...input,
-        [e.target.name]: e.target.value
-    }));
-};
+    const [error, setError] = useState({});
 
-function handleSelect(e){
-    e.preventDefault();
-    if(!input.temperament.includes(e.target.value)){
+
+    // Form Functions
+    function handleChange(e){
         setInput({
             ...input,
-            temperament: [...input.temperament, e.target.value],
-        })
+            [e.target.name]: e.target.value
+        });
+        // console.log(input)
+        // Como la actualizacion del estado es algo asincrónico lo voy a ver reflejado "tarde" a los cambios
         setError(validate({
             ...input,
-            temperament: [...input.temperament, e.target.value]
+            [e.target.name]: e.target.value
         }));
     };
-    document.getElementById('SelectGenres').selectedIndex = 'DEFAULT';
-};
 
-function handleDeSelect(e){
-    e.preventDefault();
-    setInput({
-        ...input,
-        temperament: input.temperament.filter(gen => gen !== e.target.value)
-    });
-    setError(validate({
-        ...input,
-        temperament: input.temperament.filter(gen => gen !== e.target.value)
-    }));
-};
+    function handleSelect(e){
+        e.preventDefault();
+        if(!input.temperament.includes(e.target.value)){
+            setInput({
+                ...input,
+                temperament: [...input.temperament, e.target.value],
+            })
+            setError(validate({
+                ...input,
+                temperament: [...input.temperament, e.target.value]
+            }));
+        };
+        document.getElementById('SelectGenres').selectedIndex = 'DEFAULT';
+    };
 
-// Checkbox function
-/* function handleCheckbox(e){
-    if(!input.temperament.includes(e.target.value)){
+    function handleDeSelect(e){
+        e.preventDefault();
         setInput({
             ...input,
-            temperament: [...input.temperament, e.target.value]
+            temperament: input.temperament.filter(gen => gen !== e.target.value)
         });
         setError(validate({
             ...input,
-            temperament: [...input.temperament, e.target.value]
+            temperament: input.temperament.filter(gen => gen !== e.target.value)
         }));
-    }
-    else{
-        setInput({
-            ...input,
-            temperament: input.temperament.filter(tem => tem !== e.target.value)
-        });
-        setError(validate({
-            ...input,
-            temperament: input.temperament.filter(tem => tem !== e.target.value)
-        }));
-    }
-}; */
-
-function validate(input){
-    let error = {};
-    if(!input.name){error.name = 'Please write a name'}
-    else if(input.name.length > 40){error.name = 'The name is too long'}
-    else if(dogsList.some(g => g.name.toLowerCase() === input.name.toLowerCase())){error.name = 'The Breed already exist'};
-
-    if(!input.height_min){error.height = 'Min Height required'}
-    else if(!input.height_max){error.height = 'Max Height required'}
-    else if(parseInt(input.height_min) >= parseInt(input.height_max)){error.height = 'Min must be less than Max'};
-
-    if(!input.weight_min){error.weight = 'Min Weight required'}
-    else if(!input.weight_max){error.weight = 'Max Weight required'}
-    else if(parseInt(input.weight_min) >= parseInt(input.weight_max)){error.weight = 'Min must be less than Max'};
-
-    if(!input.life_span){error.life_span = 'Life Span value required'};
-
-    if(!input.image){error.image = 'Please insert the image link'}
-    else if(input.image.slice(-3) !== 'bmp' &&
-    input.image.slice(-3) !== 'jpg' &&
-    input.image.slice(-4) !== 'jpeg' &&
-    input.image.slice(-3) !== 'jpg' &&
-    input.image.slice(-3) !== 'tif' &&
-    input.image.slice(-4) !== 'tiff' &&
-    input.image.slice(-3) !== 'png' &&
-    input.image.slice(-3) !== 'svg')
-    {error.image = 'This link is not a valid image'};
-
-    if(!input.temperament.length){error.temperament = 'Select at least one Temperament'};
+    };
     
-    return (error);
-};
+    function validate(input){
+        let error = {};
+        if(!input.name){error.name = 'Please write a name'}
+        else if(input.name.length > 40){error.name = 'The name is too long'}
+        else if(dogsList.some(g => g.name.toLowerCase() === input.name.toLowerCase())){error.name = 'The Breed already exist'};
 
-function handleSubmit(e){
-    e.preventDefault();
-    if(input.name){
-        dispatch(createBreed({
-            name: input.name,
-            image: input.image,
-            height: `${input.height_min} - ${input.height_max}`,
-            weight: `${input.weight_min} - ${input.weight_max}`,
-            life_span: input.life_span,
-            temperament: input.temperament
-        }));
-        setInput({
-            name:'',
-            image: '',
-            height_min: '',
-            height_max: '',
-            weight_min: '',
-            weight_max: '',
-            life_span: '',
-            temperament: []
-        });
-        alert('Dog Created Successfully');
-        history.push('/home');
-    }
-    else{
-        alert('Please complete all the cases'); 
-    }
-};
+        if(!input.height_min){error.height = 'Min Height required'}
+        else if(!input.height_max){error.height = 'Max Height required'}
+        else if(parseInt(input.height_min) >= parseInt(input.height_max)){error.height = 'Min must be less than Max'};
+
+        if(!input.weight_min){error.weight = 'Min Weight required'}
+        else if(!input.weight_max){error.weight = 'Max Weight required'}
+        else if(parseInt(input.weight_min) >= parseInt(input.weight_max)){error.weight = 'Min must be less than Max'};
+
+        if(!input.life_span){error.life_span = 'Life Span value required'};
+
+        if(!input.image){error.image = 'Please insert the image link'}
+        else if(input.image.slice(-3) !== 'bmp' &&
+        input.image.slice(-3) !== 'jpg' &&
+        input.image.slice(-4) !== 'jpeg' &&
+        input.image.slice(-3) !== 'jpg' &&
+        input.image.slice(-3) !== 'tif' &&
+        input.image.slice(-4) !== 'tiff' &&
+        input.image.slice(-3) !== 'png' &&
+        input.image.slice(-3) !== 'svg')
+        {error.image = 'This link is not a valid image'};
+
+        if(!input.temperament.length){error.temperament = 'Select at least one Temperament'};
+        
+        return (error);
+    };
+
+    function handleSubmit(e){
+        e.preventDefault();
+        if(input.name){
+            dispatch(createBreed({
+                name: input.name,
+                image: input.image,
+                height: `${input.height_min} - ${input.height_max}`,
+                weight: `${input.weight_min} - ${input.weight_max}`,
+                life_span: input.life_span,
+                temperament: input.temperament
+            }));
+            setInput({
+                name:'',
+                image: '',
+                height_min: '',
+                height_max: '',
+                weight_min: '',
+                weight_max: '',
+                life_span: '',
+                temperament: []
+            });
+            alert('Dog Created Successfully');
+            history.push('/home');
+        }
+        else{
+            alert('Please complete all the cases'); 
+        }
+    };
 
 
     return(
@@ -360,7 +325,7 @@ function handleSubmit(e){
 
 
             <div className={s.dogPreview}>
-                <p>Card Preview</p>
+                <p>Dog Preview</p>
                 <Card 
                 id='NO LINK'
                 name={input.name? (input.name) : ('YOUR DOG')} 

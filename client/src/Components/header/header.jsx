@@ -17,8 +17,8 @@ export default function Header ({currentPage}) {
     const [name, setName] = useState('');
 
     async function search(e){
+        e.preventDefault();
         if(allbreeds.some(g=>g.name.toLowerCase().includes(name.toLowerCase()))){
-            e.preventDefault();
             await dispatch(getBreedsByName(name));
             currentPage(1);
             setName('');
@@ -41,7 +41,7 @@ export default function Header ({currentPage}) {
                         </button>
                     </form>
                 </div>
-                <h2>Lucky DOG Browser</h2>
+                <h2>Lucky DOG</h2>
                 <div>
                     <Link to='/'><button className={s.btn}>To Landing</button></Link>
                     <Link to='/create'>

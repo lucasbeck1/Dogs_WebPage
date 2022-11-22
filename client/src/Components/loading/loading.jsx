@@ -1,6 +1,7 @@
 import React from "react";
-import s from "./loading.module.css";
+
 import defaultImage from "../../Assets/loader-12.gif";
+import s from "./loading.module.css";
 
 
 export default function Loading ({loadImg}) {

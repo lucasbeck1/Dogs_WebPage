@@ -12,7 +12,7 @@ export default function Card({id, name, img, weight, temp}){
     const dispatch = useDispatch();
 
     function detailB(e){
-        dispatch(getDetail(id))
+        /* dispatch(getDetail(id)) */
     };
     
     if(temp && temp.split(', ').length > 3){

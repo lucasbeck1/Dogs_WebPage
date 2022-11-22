@@ -14,6 +14,9 @@
     border: solid 2px wheat;
 }
 
+.homeButton:active{
+    background-color:rgb(207, 110, 226);
+}
 
 
 .submittButton1{
@@ -29,6 +32,10 @@
     color:rgb(0, 0, 0);
     background-color:rgb(231, 145, 248);
     box-shadow: 20px;
+}
+
+.btnTempON:active{
+    background-color:rgb(159, 68, 177);
 }
 
 
@@ -105,6 +112,10 @@
     border-color: rgb(211, 91, 248);
     background-color: rgb(233, 194, 245);
     box-shadow: 20px;
+}
+
+.btnTempON:active{
+    background-color:rgb(206, 154, 216);
 }
 
 

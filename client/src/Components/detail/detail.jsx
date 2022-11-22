@@ -12,32 +12,28 @@ import s from "./detail.module.css";
 
 export default function Detail (props){
     const detailB = useSelector(state => state.detail);
-    if(detailB.createdInDatabase) detailB.life_span = detailB.life_span + ' years';
     
-
     // Mostrar loading
-    /*   const dispatch = useDispatch();
+      const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id));
         return () => {dispatch(clearDetail())}
-    },[dispatch, props.match.params.id]) */
+    },[dispatch, props.match.params.id])
     // Luego agregar el condicional:
-    // {Object.keys(detailG).length > 0 ?
+    // {Object.keys(detailB).length > 0 ?
   
     
     // Otra forma de mostrar el loading
     let idB = (detailB.id)?.toString();
-    useEffect(()=>{
+    /* useEffect(()=>{
         console.log('Ruta',props.match.params.id);
         console.log('Dog',idB);
-    },[idB, props.match.params.id]);
-    // Luego agregar el condicional:
-    // {idB === props.match.params.id ?
+    },[idB, props.match.params.id]); */
+
 
 
     return(
         <React.Fragment>
-        
             {idB === props.match.params.id ?
             (<div>
             
@@ -73,9 +69,8 @@ export default function Detail (props){
                     </div>
                 </div>
             </div>) 
-
-            : ( 
-            <div>
+            :  
+            (<div>
                 <Link to={`/home`} className={s.link}><p className={s.homeButton}>Home</p></Link>
                 <Loading loadImg={loader}/>
             </div>)}

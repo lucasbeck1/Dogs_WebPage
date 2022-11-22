@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
+import { getBreeds, getTemperaments } from '../../Redux/actions';
 import Header from "../header/header";
 import ContentBar from "../contentBar/contentBar";
 import Card from "../card/card";
@@ -12,16 +13,23 @@ import s from "./home.module.css";
 
 
 export default function Home(){
-
     // Global states
-    const breeds = useSelector(state => state.breeds);
+    let breeds = useSelector(state => state.breeds);
     const allbreeds = useSelector(state => state.allbreeds);
+    const temperaments = useSelector(state => state.temperaments);
+    
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        if(!allbreeds.length) dispatch(getBreeds());
+        if(!temperaments.length) dispatch(getTemperaments());
+    },[dispatch, allbreeds, temperaments]);
+
 
     // Local states
     const [currentPage, setCurrentPage] = useState(1);
     const changePage = (pageNumber) => {setCurrentPage(pageNumber)};
     const previousPage = () => {if(parseInt(currentPage) !== 1) setCurrentPage(parseInt(currentPage) -1)};
-    const nextPage = (max) => {if(parseInt(currentPage) !== (max)) setCurrentPage(parseInt(currentPage) + 1)};
+    const nextPage = (last) => {if(parseInt(currentPage) !== (last)) setCurrentPage(parseInt(currentPage) + 1)};
 
     const [cardsPerPage, setcardsPerPage] = useState(8);
     const indexLastCard = currentPage * cardsPerPage;
@@ -31,19 +39,18 @@ export default function Home(){
  
     return(
         <React.Fragment>
-            <Header currentPage={setCurrentPage}></Header>
-
-            <ContentBar CurrentPage={setCurrentPage}></ContentBar>
+            <Header currentPage={setCurrentPage}/>
+            <ContentBar CurrentPage={setCurrentPage}/>
 
             {allbreeds.length? (
             <div>
                 <Paginated 
                 dogsTotal={breeds.length} 
                 dogsPage={cardsPerPage} 
+                actualPage={parseInt(currentPage)}
                 select={changePage} 
                 prevSelect={previousPage}
                 nextSelect={nextPage} 
-                actualPage={parseInt(currentPage)}
                 />
 
                 <div className={s.list}>

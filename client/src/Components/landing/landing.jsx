@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import s from "./landing.module.css";
+
 import { getBreeds, getTemperaments } from '../../Redux/actions';
+
+import s from "./landing.module.css";
 
 
 export default function Landing(){
-
 
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -14,19 +15,23 @@ export default function Landing(){
         dispatch(getTemperaments());
     },[dispatch]);
 
-return(
-    <React.Fragment>
-        <div className={s.page}>
-            <div className={s.page2}>
-                <h2>Lucky Dog</h2>
-                <h4>The Dog Breeds Browser</h4>
-                <Link exact to='/home' >
-                    <button className={s.btnStart}>START</button>
-                </Link>
+    return(
+        <React.Fragment>
+            <div className={s.pageContainer}>
+                <div className={s.textContainer}>
+                    <h2>Lucky DOG</h2>
+                    <h4>The Dog Breeds Browser</h4>
+                    <Link exact to='/home' >
+                        <button className={s.btnStart}>START</button>
+                    </Link>
+                </div>
             </div>
-        </div>
-    </React.Fragment>
-)};
+        </React.Fragment>
+    )
+};
+
+
+
 
 
 

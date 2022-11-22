@@ -10,7 +10,7 @@ let initialState = {
 export default function rootReducer(state=initialState, action){
     switch(action.type){
         case GET_BREEDS: 
-             let dataBreeds = action.payload;
+            let dataBreeds = action.payload;
             
             for(let i=0; i<dataBreeds.length; i++){
                 if(dataBreeds[i].createdInDatabase === true) {
@@ -19,7 +19,7 @@ export default function rootReducer(state=initialState, action){
                         name: dataBreeds[i].name,
                         height: dataBreeds[i].height,
                         weight: dataBreeds[i].weight,
-                        life_span: dataBreeds[i].life_span,
+                        life_span: dataBreeds[i].life_span + ' years',
                         image:  dataBreeds[i].image,
                         createdInDatabase: dataBreeds[i].createdInDatabase,
                         temperament: dataBreeds[i].Temperaments.map(el=>el.name).join(', ')
@@ -30,8 +30,8 @@ export default function rootReducer(state=initialState, action){
             return({...state, breeds: dataBreeds, allbreeds: dataBreeds}); 
         
         case GET_BREEDS_BYNAME:
-            
             let dataBreedsByname = action.payload;
+
             for(let i=0; i<dataBreedsByname.length; i++){
                 if(dataBreedsByname[i].createdInDatabase === true) {
                     dataBreedsByname[i] = ({
@@ -39,7 +39,7 @@ export default function rootReducer(state=initialState, action){
                         name: dataBreedsByname[i].name,
                         height: dataBreedsByname[i].height,
                         weight: dataBreedsByname[i].weight,
-                        life_span: dataBreedsByname[i].life_span,
+                        life_span: dataBreedsByname[i].life_span + ' years',
                         image:  dataBreedsByname[i].image,
                         createdInDatabase: dataBreedsByname[i].createdInDatabase,
                         temperament: dataBreedsByname[i].Temperaments.map(el=>el.name).join(', ')
@@ -65,7 +65,6 @@ export default function rootReducer(state=initialState, action){
             else if(filter === 'Db'){actualbreeds = actualbreeds.filter(g => g.createdInDatabase === true)}
             else if(temperaments.includes(filter)){actualbreeds = actualbreeds.filter(g => g.temperament.includes(filter))}
 
-            
             return({
                 ...state,
                 breeds: actualbreeds
@@ -131,7 +130,7 @@ export default function rootReducer(state=initialState, action){
                     name: detailD.name,
                     height: detailD.height,
                     weight: detailD.weight,
-                    life_span: detailD.life_span,
+                    life_span: detailD.life_span + ' years',
                     image:  detailD.image,
                     createdInDatabase: detailD.createdInDatabase,
                     temperament: detailD.Temperaments.map(el=>el.name).join(', ')
