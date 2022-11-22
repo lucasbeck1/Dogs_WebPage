@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import s from "./landing.module.css";
 import { getBreeds, getTemperaments } from '../../Redux/actions';
-import loader from "../../Assets/loader-10.gif";
 
 
 export default function Landing(){
@@ -31,7 +30,8 @@ return(
 
 
 
-/* 
+/*
+favicon
 Mod landing,
 mostrar de a 10 numeros
 añadir idiomas (switch), 
@@ -39,8 +39,7 @@ tema oscuro,
 fondo en imagenes, 
 responsive,
 previsualizacion loading
-cretae form: ranges veritcal y dinamicos
-modularizar los svg dentro de assets y requerirlos en el detail
+create form: ranges veritcal y dinamicos
 clases para los colores y botones
 -
 eliminar razas,

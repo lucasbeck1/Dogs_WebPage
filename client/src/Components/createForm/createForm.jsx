@@ -2,8 +2,11 @@ import React, {useState, useEffect} from "react";
 import { createBreed, getBreeds, getTemperaments } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
+
 import Card from "../card/card";
 import defaultImage from "../../Assets/dog-cartoon-1.webp";
+import Vectors from '../../Assets/vectors.js';
+
 import s from "./createForm.module.css";
 
 
@@ -166,200 +169,207 @@ function handleSubmit(e){
 };
 
 
-return(
-    <React.Fragment>
-        <Link to='/home'><button className={s.homeButton}>Back Home</button></Link>
-        <h3>Create Your BREED !</h3>
-        
-        <div className={s.form}>
-            <form onSubmit={e=> handleSubmit(e)}>
-                <p>Name: </p>
-                <input
-                type='text'
-                value={input.name}
-                name='name'
-                placeholder='Breed Name'
-                maxLength='70'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />
-                {error.name? (<p className={s.error}>{error.name}</p>) :
-                (<div>
-                    <br/>
-                </div>)}
-
-                <p>Height: </p>
-                <input
-                type='range'
-                min="1" 
-                max='50'
-                step="1"
-                value={input.height_min}
-                name='height_min'
-                placeholder='height_min'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />
-
-                <p>Min: {input.height_min}</p>
-
-                <input
-                type='range'
-                min='1'
-                max="50"
-                step="1"
-                value={input.height_max}
-                name='height_max'
-                placeholder='height_max'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />  
-        
-                <p>Max: {input.height_max}</p>
-
-                {error.height ? (<p className={s.error}>{error.height}</p>) : 
+    return(
+        <React.Fragment>
+            <Link to='/home'>
+                <button className={s.homeButton}>
+                    {Vectors.dogHouse}
+                    Back Home
+                </button>
+            </Link>
+            <h3>Create Your BREED !</h3>
+            
+            <div className={s.form}>
+                <form onSubmit={e=> handleSubmit(e)}>
+                    <p>Name: </p>
+                    <input
+                    type='text'
+                    value={input.name}
+                    name='name'
+                    placeholder='Breed Name'
+                    maxLength='70'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />
+                    {error.name? (<p className={s.error}>{error.name}</p>) :
                     (<div>
                         <br/>
-                    </div>)
-                }
+                    </div>)}
+
+                    <p>Height: </p>
+                    <input
+                    type='range'
+                    min="1" 
+                    max='50'
+                    step="1"
+                    value={input.height_min}
+                    name='height_min'
+                    placeholder='height_min'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />
+
+                    <p>Min: {input.height_min}</p>
+
+                    <input
+                    type='range'
+                    min='1'
+                    max="50"
+                    step="1"
+                    value={input.height_max}
+                    name='height_max'
+                    placeholder='height_max'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />  
+            
+                    <p>Max: {input.height_max}</p>
+
+                    {error.height ? (<p className={s.error}>{error.height}</p>) : 
+                        (<div>
+                            <br/>
+                        </div>)
+                    }
 
 
-                <p>Weight: </p>
-                <input
-                type='number'
-                min="1" 
-                max={parseInt(input.weight_max) - 1}
-                step="1"
-                value={input.weight_min}
-                name='weight_min'
-                placeholder='Min'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />
+                    <p>Weight: </p>
+                    <input
+                    type='number'
+                    min="1" 
+                    max={parseInt(input.weight_max) - 1}
+                    step="1"
+                    value={input.weight_min}
+                    name='weight_min'
+                    placeholder='Min'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />
 
-                <input
-                type='number'
-                min={parseInt(input.weight_min) + 1}
-                max="50"
-                step="1"
-                value={input.weight_max}
-                name='weight_max'
-                placeholder='Max'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />  
-        
-                {error.weight ? (<p className={s.error}>{error.weight}</p>) : 
+                    <input
+                    type='number'
+                    min={parseInt(input.weight_min) + 1}
+                    max="50"
+                    step="1"
+                    value={input.weight_max}
+                    name='weight_max'
+                    placeholder='Max'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />  
+            
+                    {error.weight ? (<p className={s.error}>{error.weight}</p>) : 
+                        (<div>
+                            <br/>
+                        </div>)
+                    }
+
+
+                    <p>Life Span: </p>
+                    <input
+                    type='range'
+                    min="1" 
+                    max='100'
+                    step="1"
+                    value={input.life_span}
+                    name='life_span'
+                    placeholder='life_span'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />
+
+                    {error.life_span ? (<p className={s.error}>{error.life_span}</p>) : 
+                        (input.life_span ? 
+                        (<p>{input.life_span}</p>)  :
+                        (<div>
+                            <br/>
+                        </div>))
+                    }
+
+
+                    <p>Image Link: </p>
+                    <input
+                    type='url'
+                    value={input.image}
+                    name='image'
+                    placeholder='http//www...'
+                    onChange={e => handleChange(e)}
+                    className={s.inputs1}
+                    />
+                    
+                    {error.image ? (<p className={s.error}>{error.image}</p>) :
                     (<div>
                         <br/>
-                    </div>)
-                }
-
-
-                <p>Life Span: </p>
-                <input
-                type='range'
-                min="1" 
-                max='100'
-                step="1"
-                value={input.life_span}
-                name='life_span'
-                placeholder='life_span'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />
-
-                {error.life_span ? (<p className={s.error}>{error.life_span}</p>) : 
-                    (input.life_span ? 
-                    (<p>{input.life_span}</p>)  :
+                    </div>)}
+                    
+                    <p>Temperament: </p>
+                    {
+                    <select id='SelectGenres' onChange={e=> handleSelect(e)} defaultValue={'DEFAULT'}>
+                        <option value='DEFAULT' disabled>Select a temperament</option>
+                        {tempList.map((el)=>(
+                            <option key={`${el}1`} value={el} name={el}>{el}</option>
+                        ))}
+                    </select>
+                    }
+                    
+                    {error.temperament ? (<p className={s.error}>{error.temperament}</p>) :
                     (<div>
                         <br/>
-                    </div>))
-                }
+                    </div>)}
+
+                    { 
+                    <div className={s.listTemp}>
+                    {tempList.map((gen => (
+                    
+                        /* input.temperament.includes(gen) ? 
+                        (<div key={`${gen}`}>
+                            <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
+                        </div>) 
+                        : 
+                        (<div key={`${gen}`}>
+                            <button className={s.btnTempOFF} onClick={e => handleSelect(e)} value={gen}>{gen}</button>
+                        </div>) */
 
 
-                <p>Image Link: </p>
-                <input
-                type='url'
-                value={input.image}
-                name='image'
-                placeholder='http//www...'
-                onChange={e => handleChange(e)}
-                className={s.inputs1}
-                />
-                
-                {error.image ? (<p className={s.error}>{error.image}</p>) :
-                (<div>
+                        input.temperament.includes(gen) ? 
+                        (<div key={`${gen}`}>
+                            <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
+                        </div>) 
+                        : 
+                        (<>
+                        </>)
+
+                    
+                    )))}
+                    </div>
+                    }
+                    
                     <br/>
-                </div>)}
-                
-                <p>Temperament: </p>
-                {
-                <select id='SelectGenres' onChange={e=> handleSelect(e)} defaultValue={'DEFAULT'}>
-                    <option value='DEFAULT' disabled>Select a temperament</option>
-                    {tempList.map((el)=>(
-                        <option key={`${el}1`} value={el} name={el}>{el}</option>
-                    ))}
-                </select>
-                }
-                
-                {error.temperament ? (<p className={s.error}>{error.temperament}</p>) :
-                (<div>
-                    <br/>
-                </div>)}
 
-                { 
-                <div className={s.listTemp}>
-                {tempList.map((gen => (
-                   
-                    /* input.temperament.includes(gen) ? 
-                    (<div key={`${gen}`}>
-                        <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
-                    </div>) 
-                    : 
-                    (<div key={`${gen}`}>
-                        <button className={s.btnTempOFF} onClick={e => handleSelect(e)} value={gen}>{gen}</button>
-                    </div>) */
+                    <div>
+                    
+                    {Object.keys(error).length ? 
+                        (<input type="submit" disabled name="Send" className={s.submittButton2}/>) 
+                        :
+                        (<input type="submit" name="Send" className={s.submittButton1}/>)
+                    }
+
+                    </div>
+                    
+                </form>
+            </div>
 
 
-                    input.temperament.includes(gen) ? 
-                    (<div key={`${gen}`}>
-                        <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
-                    </div>) 
-                    : 
-                    (<>
-                    </>)
-
-                
-                )))}
-                </div>
-                }
-                
-                <br/>
-
-                <div>
-                
-                {Object.keys(error).length ? 
-                    (<input type="submit" disabled name="Send" className={s.submittButton2}/>) 
-                    :
-                    (<input type="submit" name="Send" className={s.submittButton1}/>)
-                }
-
-                </div>
-                
-            </form>
-        </div>
-
-
-        <div className={s.dogPreview}>
-            <Card 
-            id='NO LINK'
-            name={input.name? (input.name) : ('YOUR DOG')} 
-            img={input.image? (input.image) : (defaultImage)}
-            weight={(input.weight_min && input.weight_max)? ([input.weight_min, ' - ' , input.weight_max].join(' ')) : ('Min - Max')}
-            temp={input.temperament.length > 0? (input.temperament.join(', ')) : ('Temperament')} 
-            ></Card>
-        </div>
-        
-    </React.Fragment>
-)};
+            <div className={s.dogPreview}>
+                <p>Card Preview</p>
+                <Card 
+                id='NO LINK'
+                name={input.name? (input.name) : ('YOUR DOG')} 
+                img={input.image? (input.image) : (defaultImage)}
+                weight={(input.weight_min && input.weight_max)? ([input.weight_min, ' - ' , input.weight_max].join(' ')) : ('Min - Max')}
+                temp={input.temperament.length > 0? (input.temperament.join(', ')) : ('Temperament')} 
+                ></Card>
+            </div>
+            
+        </React.Fragment>
+    )
+};

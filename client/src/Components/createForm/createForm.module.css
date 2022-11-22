@@ -139,5 +139,12 @@
     margin: 0 auto;
     width: 20rem;
     height: 20rem;
-    padding: 10rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    border: 4px solid  #ffcaff;
+    border-top: none;
+    border-radius: 10px;
+    background-color: rgb(255, 235, 205);
 }
