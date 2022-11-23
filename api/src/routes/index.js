@@ -48,7 +48,7 @@ async function breedsFromDB(){
         br2[i]={
             ...br2[i],
             temperament: br2[i].Temperaments? (br2[i].Temperaments.map(g=>g.name).join(', ')) : ('Loyal, like all Dogs'),
-            life_span: br2[i].life_span? (br2[i].life_span + ' years') : ('many years')
+            life_span: br2[i].life_span? (br2[i].life_span) : ('many years')
         };
         delete br2[i].Temperaments;
     };

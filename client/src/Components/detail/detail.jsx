@@ -14,21 +14,17 @@ export default function Detail (props){
     const detailB = useSelector(state => state.detail);
     
     // Mostrar loading
-      const dispatch = useDispatch();
+    const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id));
         return () => {dispatch(clearDetail())}
     },[dispatch, props.match.params.id])
+    
+    
+    let idB = (detailB.id)?.toString();
+    // Otra forma de mostrar el loading
     // Luego agregar el condicional:
     // {Object.keys(detailB).length > 0 ?
-  
-    
-    // Otra forma de mostrar el loading
-    let idB = (detailB.id)?.toString();
-    /* useEffect(()=>{
-        console.log('Ruta',props.match.params.id);
-        console.log('Dog',idB);
-    },[idB, props.match.params.id]); */
 
 
 

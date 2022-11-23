@@ -13,7 +13,6 @@ export default function Header ({currentPage}) {
     const dispatch = useDispatch();
     const allbreeds = useSelector(state => state.allbreeds);
 
-    const [order, setOrder] = useState('NO Order');
     const [name, setName] = useState('');
 
     async function search(e){
@@ -54,4 +53,4 @@ export default function Header ({currentPage}) {
             </div>
         </React.Fragment>
     )
-}
+};

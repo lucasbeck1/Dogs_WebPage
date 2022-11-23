@@ -25,7 +25,7 @@ export default function CreateForm (){
         height_max: '',
         weight_min: '',
         weight_max: '',
-        life_span: '',
+        life_span: '0',
         temperament: []
     });
     const [error, setError] = useState({});
@@ -86,7 +86,7 @@ export default function CreateForm (){
         else if(!input.weight_max){error.weight = 'Max Weight required'}
         else if(parseInt(input.weight_min) >= parseInt(input.weight_max)){error.weight = 'Min must be less than Max'};
 
-        if(!input.life_span){error.life_span = 'Life Span value required'};
+        if(input.life_span === '0' || !input.life_span){error.life_span = 'Life Span value required'};
 
         if(!input.image){error.image = 'Please insert the image link'}
         else if(input.image.slice(-3) !== 'bmp' &&
@@ -112,7 +112,7 @@ export default function CreateForm (){
                 image: input.image,
                 height: `${input.height_min} - ${input.height_max}`,
                 weight: `${input.weight_min} - ${input.weight_max}`,
-                life_span: input.life_span,
+                life_span: `${input.life_span} years`,
                 temperament: input.temperament
             }));
             setInput({
@@ -122,7 +122,7 @@ export default function CreateForm (){
                 height_max: '',
                 weight_min: '',
                 weight_max: '',
-                life_span: '',
+                life_span: '0',
                 temperament: []
             });
             dispatch(getBreeds());
@@ -163,31 +163,31 @@ export default function CreateForm (){
                     </div>)}
 
                     <p>Height: </p>
+ 
                     <input
-                    type='range'
+                    type='number'
                     min="1" 
-                    max='50'
+                    max={parseInt(input.height_max) - 1}
                     step="1"
                     value={input.height_min}
                     name='height_min'
-                    placeholder='height_min'
+                    placeholder='Min'
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />
-                    <p>Min: {input.height_min}</p>
-
+                  
                     <input
-                    type='range'
-                    min='1'
-                    max="50"
+                    type='number'
+                    min={parseInt(input.height_min) + 1}
+                    max='100'
                     step="1"
                     value={input.height_max}
                     name='height_max'
-                    placeholder='height_max'
+                    placeholder='Max'
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />  
-                    <p>Max: {input.height_max}</p>
+                
 
                     {error.height ? (<p className={s.error}>{error.height}</p>) : 
                         (<div>
@@ -212,7 +212,7 @@ export default function CreateForm (){
                     <input
                     type='number'
                     min={parseInt(input.weight_min) + 1}
-                    max="50"
+                    max="100"
                     step="1"
                     value={input.weight_max}
                     name='weight_max'
@@ -231,7 +231,7 @@ export default function CreateForm (){
                     <p>Life Span: </p>
                     <input
                     type='range'
-                    min="1" 
+                    min="0" 
                     max='100'
                     step="1"
                     value={input.life_span}
@@ -240,12 +240,17 @@ export default function CreateForm (){
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />
+                    
+                    {(input.life_span ? 
+                    (<p>{input.life_span}</p>)  :
+                    (<div>
+                        <br/>
+                    </div>))}
+
                     {error.life_span ? (<p className={s.error}>{error.life_span}</p>) : 
-                        (input.life_span ? 
-                        (<p>{input.life_span}</p>)  :
-                        (<div>
-                            <br/>
-                        </div>))
+                    (<div>
+                       <br/>
+                    </div>) 
                     }
 
 

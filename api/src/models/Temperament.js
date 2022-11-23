@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('Temperament', {
     // Si no lo defino, ID va a añadirse de forma automática.
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     }
     
   },{timestamps: false});

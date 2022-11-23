@@ -7,7 +7,8 @@ export default function Paginated({dogsTotal, dogsPage, select, nextSelect, prev
     for (let i = 1; i <= Math.ceil(dogsTotal/dogsPage); i++) {
         pageNumbers.push(i)
     };
-    /* if dogs = 172
+    /* Calc aux 
+    if dogs = 172
     dog per page = 8
     172/8 = 21.5 --> 22
     pageNumber = [1,2,3,4, ... ,22] */

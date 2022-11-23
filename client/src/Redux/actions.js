@@ -64,7 +64,6 @@ export function filters(payload){
 
 export function createBreed(payload){
     return( async function(){
-
         fetch("http://localhost:3001/dogs",
         {
             headers: {
@@ -87,8 +86,7 @@ export function getDetail(id){
         .then(data => {
             dispatch({type: GET_DETAIL, payload: data});
         })
-        .catch(e => console.log(e));
-        
+        .catch(e => console.log(e));   
     });
 };
 
