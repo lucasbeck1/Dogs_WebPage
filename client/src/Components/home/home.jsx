@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { getBreeds, getTemperaments } from '../../Redux/actions';
 import Header from "../header/header";
-import ContentBar from "../contentBar/contentBar";
+import SideBar from "../sideBar/sideBar";
 import Card from "../card/card";
 import Paginated from "../paginated/paginated";
 import Loading from "../loading/loading"
@@ -40,7 +40,7 @@ export default function Home(){
     return(
         <React.Fragment>
             <Header currentPage={setCurrentPage}/>
-            <ContentBar CurrentPage={setCurrentPage}/>
+            <SideBar CurrentPage={setCurrentPage}/>
 
             {allbreeds.length? (
             <div>

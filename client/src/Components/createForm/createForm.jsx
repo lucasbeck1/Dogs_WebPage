@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createBreed } from "../../Redux/actions";
+import { createBreed, getBreeds } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 
@@ -125,7 +125,8 @@ export default function CreateForm (){
                 life_span: '',
                 temperament: []
             });
-            alert('Dog Created Successfully');
+            dispatch(getBreeds());
+            alert('Dog Created Successfully, Redirecting to Home');
             history.push('/home');
         }
         else{
@@ -173,7 +174,6 @@ export default function CreateForm (){
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />
-
                     <p>Min: {input.height_min}</p>
 
                     <input
@@ -187,7 +187,6 @@ export default function CreateForm (){
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />  
-            
                     <p>Max: {input.height_max}</p>
 
                     {error.height ? (<p className={s.error}>{error.height}</p>) : 
@@ -241,7 +240,6 @@ export default function CreateForm (){
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />
-
                     {error.life_span ? (<p className={s.error}>{error.life_span}</p>) : 
                         (input.life_span ? 
                         (<p>{input.life_span}</p>)  :
@@ -266,6 +264,7 @@ export default function CreateForm (){
                         <br/>
                     </div>)}
                     
+                    
                     <p>Temperament: </p>
                     {
                     <select id='SelectGenres' onChange={e=> handleSelect(e)} defaultValue={'DEFAULT'}>
@@ -284,17 +283,6 @@ export default function CreateForm (){
                     { 
                     <div className={s.listTemp}>
                     {tempList.map((gen => (
-                    
-                        /* input.temperament.includes(gen) ? 
-                        (<div key={`${gen}`}>
-                            <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
-                        </div>) 
-                        : 
-                        (<div key={`${gen}`}>
-                            <button className={s.btnTempOFF} onClick={e => handleSelect(e)} value={gen}>{gen}</button>
-                        </div>) */
-
-
                         input.temperament.includes(gen) ? 
                         (<div key={`${gen}`}>
                             <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
@@ -302,8 +290,6 @@ export default function CreateForm (){
                         : 
                         (<>
                         </>)
-
-                    
                     )))}
                     </div>
                     }
@@ -311,13 +297,11 @@ export default function CreateForm (){
                     <br/>
 
                     <div>
-                    
-                    {Object.keys(error).length ? 
-                        (<input type="submit" disabled name="Send" className={s.submittButton2}/>) 
-                        :
-                        (<input type="submit" name="Send" className={s.submittButton1}/>)
-                    }
-
+                        {Object.keys(error).length ? 
+                            (<input type="submit" disabled name="Send" className={s.submittButton2}/>) 
+                            :
+                            (<input type="submit" name="Send" className={s.submittButton1}/>)
+                        }
                     </div>
                     
                 </form>

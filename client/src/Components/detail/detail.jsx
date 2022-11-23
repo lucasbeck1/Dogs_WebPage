@@ -49,7 +49,7 @@ export default function Detail (props){
                         <h2>{detailB.name}</h2>
                     </div>
                     <img src={detailB.image? (detailB.image) : (defaultImage)} alt="Img Not Found" className={s.image}/>
-                    <p className={s.description}>{detailB.temperament? (detailB.temperament) : ('Loyal, like all Dogs')}</p>
+                    <p className={s.description}>{detailB.temperament}</p>
 
                     <div className={s.downText}>
                         <div className={s.container}>

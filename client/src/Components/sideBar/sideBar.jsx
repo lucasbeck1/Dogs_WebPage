@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBreeds, filters, orders } from '../../Redux/actions';
 
 import Vectors from '../../Assets/vectors.js'
-import s from "./contentBar.module.css";
+import s from "./sideBar.module.css";
 
 
-export default function ContentBar({CurrentPage}){
+export default function SideBar({CurrentPage}){
 
     const dispatch = useDispatch();
     const temperaments = useSelector(state => state.temperaments)

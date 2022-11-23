@@ -24,7 +24,7 @@ async function breedsFromApi(){
         weight: el.weight.metric,
         life_span: el.life_span,
         image: el.image.url,
-        temperament: el.temperament? el.temperament : 'Loyal',
+        temperament: el.temperament? el.temperament : 'Loyal, like all Dogs',
         createdInDatabase: false
       })  
     });
@@ -41,19 +41,19 @@ async function breedsFromDB(){
         }
     });
 
-    /* 
     let br1 = JSON.stringify(br);
     let br2 = JSON.parse(br1);
 
     for(let i=0; i<br2.length; i++){
         br2[i]={
             ...br2[i],
-            temperament: br2[i].Temperaments.map(g=>g.name).join(', ')
+            temperament: br2[i].Temperaments? (br2[i].Temperaments.map(g=>g.name).join(', ')) : ('Loyal, like all Dogs'),
+            life_span: br2[i].life_span? (br2[i].life_span + ' years') : ('many years')
         };
+        delete br2[i].Temperaments;
     };
-    */
-
-    return(br);
+    
+    return(br2);
 };
 
 

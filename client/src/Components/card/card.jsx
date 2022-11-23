@@ -26,7 +26,7 @@ export default function Card({id, name, img, weight, temp}){
                 <img src={img? (img) : (defaultImage)} alt='Dog'className={s.image}/>
                 <h4>{name}</h4>
                 <p>{weight} Kg</p>
-                <p>{temp? (temp) : ('Loyal, like all Dogs')}</p>
+                <p>{temp}</p>
             </div>
             )
         : 
@@ -36,7 +36,7 @@ export default function Card({id, name, img, weight, temp}){
                     <img src={img? (img) : (defaultImage)} alt='Dog'className={s.image}/>
                     <h4>{name}</h4>
                     <p>{weight} Kg</p>
-                    <p>{temp? (temp) : ('Loyal, like all Dogs')}</p>
+                    <p>{temp}</p>
                 </div>
             </Link>
             )

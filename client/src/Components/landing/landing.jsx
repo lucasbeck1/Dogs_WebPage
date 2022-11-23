@@ -20,7 +20,7 @@ export default function Landing(){
             <div className={s.pageContainer}>
                 <div className={s.textContainer}>
                     <h2>Lucky DOG</h2>
-                    <h4>The Dog Breeds Browser</h4>
+                    <h4>The Dog Breeds Encyclopedia</h4>
                     <Link exact to='/home' >
                         <button className={s.btnStart}>START</button>
                     </Link>
@@ -47,6 +47,7 @@ previsualizacion loading
 create form: ranges veritcal y dinamicos
 clases para los colores y botones
 -
+test
 eliminar razas,
 autorizacion,
 deploy: railway, netlify, render, vercel. Recuerden que estas son gratuitas y heroku dejará de serlo a fin de año, por lo que si deployan su proyecto en heroku, luego lo perderían

@@ -6,6 +6,8 @@
     padding: 0.5rem;
     width: 15rem;
     margin: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .homeButton:hover{
@@ -26,6 +28,8 @@
     border-radius: 3px;
     width: 20rem;
     padding: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .submittButton1:hover{
@@ -111,32 +115,14 @@
     border: 5px solid;
     border-color: rgb(211, 91, 248);
     background-color: rgb(233, 194, 245);
-    box-shadow: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btnTempON:active{
     background-color:rgb(206, 154, 216);
 }
 
-
-.btnTempOFF{
-    width: 90%;
-    color: #080708;
-    background-color: rgb(255, 255, 255);
-    border: 5px solid;
-    border-color: rgb(202, 200, 200);
-    border-radius: 3px;
-    padding: 0.5rem;
-    margin: 1rem;
-}
-
-.btnTempOFF:hover{
-    color: #080708;  
-    border: 5px solid;
-    border-color: rgb(116, 116, 116);
-    background-color: rgb(255, 255, 255);
-    box-shadow: 20px;
-}
 
 
 

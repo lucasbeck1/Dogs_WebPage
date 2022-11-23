@@ -12,7 +12,8 @@
     padding: 0.5rem;
     width: 15rem;
     margin: 1rem auto;
-    
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .homeButton:hover{
