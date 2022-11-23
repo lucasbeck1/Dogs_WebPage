@@ -46,6 +46,7 @@ responsive,
 previsualizacion loading
 create form: ranges veritcal y dinamicos
 clases para los colores y botones
+quitar warnings
 -
 test
 eliminar razas,
