@@ -16,7 +16,7 @@
 
 .card:hover{
     background-color:  #c7c3c3af;
-    color:rgb(90, 74, 46);
+    color:rgb(90, 66, 46);
 }
 
 
@@ -53,10 +53,11 @@
 }
 
 .image{
-    width:340px; 
-    height:200px;
-   /*  max-width:340px; 
-    max-height:200px; */
-    object-fit: fill;
+    /* width:340px; 
+    height:200px; */
+    max-width:340px;
+    max-height:200px;
+    object-fit: contain;
     border-radius: 3px;
 }
+

@@ -7,10 +7,18 @@ import s from "./card.module.css";
 
 
 export default function Card({id, name, img, weight, temp}){
-    
+
     if(temp && temp.split(', ').length > 3){
         temp = temp.split(', ').slice(0,3).join(', ');
     };
+
+    
+   /*  const styleDiv = {
+        width:'340px', 
+        height:'200px',
+        //backgroundColor: "rgb(204, 109, 31)",
+    }
+    //style={styleDiv} */
 
     return(
         id === 'NO LINK' ?
@@ -26,7 +34,9 @@ export default function Card({id, name, img, weight, temp}){
         (
         <Link to={`/detail/${id}`} className={s.det}>
             <div key={id} className={s.card}>
-                <img src={img? (img) : (defaultImage)} alt='Dog'className={s.image}/>
+                <div id={'gradient-wrap'}>
+                    <img src={img? (img) : (defaultImage)} alt='Dog'className={s.image} cross-origin="anonymous"/>
+                </div>
                 <h4>{name}</h4>
                 <p>{weight} Kg</p>
                 <p>{temp}</p>
