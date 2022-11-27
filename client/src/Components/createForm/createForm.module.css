@@ -83,10 +83,19 @@
     border-radius: 4px;
 }
 
+
+.textBold{
+    /* font-weight: bold; */
+    font-weight: 500;
+}
+
 .inputs1{
     width: 20rem;
 }
 
+.inputs2{
+    width: 6rem;
+}
 
 
 

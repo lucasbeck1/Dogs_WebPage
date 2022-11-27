@@ -21,7 +21,7 @@ export default function Landing(){
                 <div className={s.textContainer}>
                     <h2>Lucky DOG</h2>
                     <h4>The Dog Breeds Encyclopedia</h4>
-                    <Link exact to='/home' >
+                    <Link to='/home' >
                         <button className={s.btnStart}>START</button>
                     </Link>
                 </div>
@@ -51,12 +51,11 @@ tema oscuro, colores:
     --chakra-colors-gray-700: #2D3748;
     --chakra-colors-gray-800: #1A202C;
     --chakra-colors-gray-900: #171923;
-fondo en imagenes - Grade - Cors?, 
+fondo en imagenes - Grade - Cors error, 
 responsive,
 previsualizacion loading
 create form: ranges veritcal y dinamicos
 clases para los colores y botones
-quitar warnings
 -
 test
 eliminar razas,

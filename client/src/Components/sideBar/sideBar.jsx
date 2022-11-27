@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBreeds, filters, orders } from '../../Redux/actions';
 
@@ -10,7 +10,6 @@ export default function SideBar({CurrentPage}){
 
     const dispatch = useDispatch();
     const temperaments = useSelector(state => state.temperaments)
-    const [order, setOrder] = useState('NO Order');
 
 
     // Button Functions
@@ -24,8 +23,6 @@ export default function SideBar({CurrentPage}){
         e.preventDefault();
         dispatch(orders(e.target.value));
         CurrentPage(1);
-        setOrder(`Order ${e.target.value}`);
-        // El estado es necesario porque al aplicar un sort, a diferecia de un filter, React no detecta cambios en nuestro estado y por eso no se actualizaría
         document.getElementById('name').selectedIndex = 'DEFAULT';
         document.getElementById('weight').selectedIndex = 'DEFAULT';
     };
@@ -40,6 +37,7 @@ export default function SideBar({CurrentPage}){
 
 
     return(
+        <>
         <div className={s.nav}>
             <button onClick={e => clearFilters(e)} className={s.btn}>
                 Clear  {Vectors.clean}
@@ -74,5 +72,6 @@ export default function SideBar({CurrentPage}){
                 <option value='Low weight'>Low Weight</option>
             </select>
         </div>
+        </>
     )
 };

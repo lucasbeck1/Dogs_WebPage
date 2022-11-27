@@ -21,10 +21,10 @@ export default function CreateForm (){
     const [input, setInput] = useState({
         name:'',
         image: '',
-        height_min: '',
-        height_max: '',
-        weight_min: '',
-        weight_max: '',
+        height_min: '0',
+        height_max: '0',
+        weight_min: '0',
+        weight_max: '0',
         life_span: '0',
         temperament: []
     });
@@ -118,10 +118,10 @@ export default function CreateForm (){
             setInput({
                 name:'',
                 image: '',
-                height_min: '',
-                height_max: '',
-                weight_min: '',
-                weight_max: '',
+                height_min: '0',
+                height_max: '0',
+                weight_min: '0',
+                weight_max: '0',
                 life_span: '0',
                 temperament: []
             });
@@ -133,6 +133,7 @@ export default function CreateForm (){
             alert('Please complete all the cases'); 
         }
     };
+
 
 
     return(
@@ -147,7 +148,7 @@ export default function CreateForm (){
             
             <div className={s.form}>
                 <form onSubmit={e=> handleSubmit(e)}>
-                    <p>Name: </p>
+                    <p className={s.textBold}>Name: </p>
                     <input
                     type='text'
                     value={input.name}
@@ -161,9 +162,10 @@ export default function CreateForm (){
                     (<div>
                         <br/>
                     </div>)}
+                    
 
-                    <p>Height: </p>
- 
+                    <p className={s.textBold}>Height: </p>
+                    <span> Min </span>
                     <input
                     type='number'
                     min="1" 
@@ -173,9 +175,11 @@ export default function CreateForm (){
                     name='height_min'
                     placeholder='Min'
                     onChange={e => handleChange(e)}
-                    className={s.inputs1}
+                    className={s.inputs2}
                     />
-                  
+               
+
+                    <span> Max </span>
                     <input
                     type='number'
                     min={parseInt(input.height_min) + 1}
@@ -185,8 +189,9 @@ export default function CreateForm (){
                     name='height_max'
                     placeholder='Max'
                     onChange={e => handleChange(e)}
-                    className={s.inputs1}
-                    />  
+                    className={s.inputs2}
+                    />
+                  
                 
 
                     {error.height ? (<p className={s.error}>{error.height}</p>) : 
@@ -196,7 +201,8 @@ export default function CreateForm (){
                     }
 
 
-                    <p>Weight: </p>
+                    <p className={s.textBold}>Weight: </p>
+                    <span> Min </span>
                     <input
                     type='number'
                     min="1" 
@@ -206,9 +212,10 @@ export default function CreateForm (){
                     name='weight_min'
                     placeholder='Min'
                     onChange={e => handleChange(e)}
-                    className={s.inputs1}
+                    className={s.inputs2}
                     />
-
+                    
+                    <span> Max </span>
                     <input
                     type='number'
                     min={parseInt(input.weight_min) + 1}
@@ -218,8 +225,9 @@ export default function CreateForm (){
                     name='weight_max'
                     placeholder='Max'
                     onChange={e => handleChange(e)}
-                    className={s.inputs1}
+                    className={s.inputs2}
                     />  
+                   
             
                     {error.weight ? (<p className={s.error}>{error.weight}</p>) : 
                         (<div>
@@ -228,7 +236,7 @@ export default function CreateForm (){
                     }
 
 
-                    <p>Life Span: </p>
+                    <p className={s.textBold}>Life Span: </p>
                     <input
                     type='range'
                     min="0" 
@@ -254,7 +262,7 @@ export default function CreateForm (){
                     }
 
 
-                    <p>Image Link: </p>
+                    <p className={s.textBold}>Image Link: </p>
                     <input
                     type='url'
                     value={input.image}
@@ -270,15 +278,15 @@ export default function CreateForm (){
                     </div>)}
                     
                     
-                    <p>Temperament: </p>
-                    {
-                    <select id='SelectGenres' onChange={e=> handleSelect(e)} defaultValue={'DEFAULT'}>
-                        <option value='DEFAULT' disabled>Select a temperament</option>
+                    <p className={s.textBold}>Temperament: </p>
+                 
+                    <select id='SelectGenres' onChange={e=> handleSelect(e)} defaultValue={'DEFAULT'} >
+                        <option key={'default'} value='DEFAULT' disabled>Select a temperament</option>
                         {tempList.map((el)=>(
-                            <option key={`${el}1`} value={el} name={el}>{el}</option>
+                           <option key={`${el} - 1`} value={el} name={el}>{el}</option>
                         ))}
                     </select>
-                    }
+                 
                     
                     {error.temperament ? (<p className={s.error}>{error.temperament}</p>) :
                     (<div>
@@ -289,12 +297,10 @@ export default function CreateForm (){
                     <div className={s.listTemp}>
                     {tempList.map((gen => (
                         input.temperament.includes(gen) ? 
-                        (<div key={`${gen}`}>
-                            <button className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>
-                        </div>) 
+                        (<button key={`${gen} - 2`} className={s.btnTempON} onClick={e => handleDeSelect(e)} value={gen}>{gen}</button>) 
                         : 
-                        (<>
-                        </>)
+                        (<React.Fragment key={`${gen} - 3`}>
+                        </React.Fragment>)
                     )))}
                     </div>
                     }
@@ -314,7 +320,7 @@ export default function CreateForm (){
 
 
             <div className={s.dogPreview}>
-                <p>Dog Preview</p>
+                <p className={s.textBold}>Dog Preview</p>
                 <Card 
                 id='NO LINK'
                 name={input.name? (input.name) : ('YOUR DOG')} 
