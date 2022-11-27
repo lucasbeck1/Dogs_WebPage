@@ -11,10 +11,17 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 
+const { API_KEY } = process.env;
+const url = `https://api.thedogapi.com/v1/breeds`;
+const config = {
+    headers:{"x-api-key":  API_KEY}
+};
+
+
 
 // -----------------   Functions   ------------------
 async function breedsFromApi(){
-    let br = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+    let br = await axios.get(url,config);
     let br2 = [];
     br.data.forEach(el => {
       br2.push({
@@ -72,7 +79,7 @@ function searchBreed(array, name){
 
 
 async function temperaments(){
-    let tem1 = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+    let tem1 = await axios.get(url);
     let tem2 = tem1.data.map(b => b.temperament).join(', ').split(', ');
     tem2 = tem2.filter(t=>t !== '');
     tem2.forEach(te => { Temperament.findOrCreate({where: {name: te}}); });

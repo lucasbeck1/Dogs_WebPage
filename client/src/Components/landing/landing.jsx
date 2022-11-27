@@ -51,7 +51,7 @@ tema oscuro, colores:
     --chakra-colors-gray-700: #2D3748;
     --chakra-colors-gray-800: #1A202C;
     --chakra-colors-gray-900: #171923;
-fondo en imagenes, 
+fondo en imagenes - Grade - Cors?, 
 responsive,
 previsualizacion loading
 create form: ranges veritcal y dinamicos

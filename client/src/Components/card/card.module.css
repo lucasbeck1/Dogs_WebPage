@@ -53,11 +53,14 @@
 }
 
 .image{
-    /* width:340px; 
-    height:200px; */
+    width:340px; 
+    height:200px; 
+    /* object-fit: fill; */
+    /* 
     max-width:340px;
     max-height:200px;
     object-fit: contain;
+    */
     border-radius: 3px;
 }
 
