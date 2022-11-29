@@ -29,36 +29,3 @@ export default function Landing(){
         </React.Fragment>
     )
 };
-
-
-
-
-
-
-/*
-favicon
-Mod landing,
-mostrar de a 10 numeros
-añadir idiomas (switch), 
-tema oscuro, colores:
-    --chakra-colors-gray-50: #F7FAFC;
-    --chakra-colors-gray-100: #EDF2F7;
-    --chakra-colors-gray-200: #E2E8F0;
-    --chakra-colors-gray-300: #CBD5E0;
-    --chakra-colors-gray-400: #A0AEC0;
-    --chakra-colors-gray-500: #718096;
-    --chakra-colors-gray-600: #4A5568;
-    --chakra-colors-gray-700: #2D3748;
-    --chakra-colors-gray-800: #1A202C;
-    --chakra-colors-gray-900: #171923;
-fondo en imagenes - Grade - Cors error, 
-responsive,
-previsualizacion loading
-create form: ranges veritcal y dinamicos
-clases para los colores y botones
--
-test
-eliminar razas,
-autorizacion,
-deploy: railway, netlify, render, vercel. Recuerden que estas son gratuitas y heroku dejará de serlo a fin de año, por lo que si deployan su proyecto en heroku, luego lo perderían
-*/

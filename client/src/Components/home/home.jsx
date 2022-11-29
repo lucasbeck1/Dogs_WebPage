@@ -31,7 +31,8 @@ export default function Home(){
     const previousPage = () => {if(parseInt(currentPage) !== 1) setCurrentPage(parseInt(currentPage) -1)};
     const nextPage = (last) => {if(parseInt(currentPage) !== (last)) setCurrentPage(parseInt(currentPage) + 1)};
 
-    const [cardsPerPage, setcardsPerPage] = useState(8);
+    //const [cardsPerPage, setcardsPerPage] = useState(8);
+    const cardsPerPage = 8;
     const indexLastCard = currentPage * cardsPerPage;
     const ixdexFirstCard = indexLastCard - cardsPerPage;
     const currentCards = breeds.slice(ixdexFirstCard, indexLastCard);
@@ -59,7 +60,7 @@ export default function Home(){
                     )})}
                 </div>
             </div>  
-            ) : (<Loading loadImg={loadImage}/>)}
+            ) : (<Loading loadImg={loadImage} smallImage={true}/>)}
         </React.Fragment>
     )
 };

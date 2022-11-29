@@ -142,15 +142,16 @@
 
 
 .dogPreview{
-    margin: 0 auto;
+    background-color: rgb(255, 235, 205);
     width: 20rem;
     height: 20rem;
     padding-left: 6rem;
     padding-right: 6rem;
-    padding-top: 3rem;
+    padding-top: 1rem;
     padding-bottom: 4rem;
     border: 4px solid  #ffcaff;
-    border-top: none;
     border-radius: 10px;
-    background-color: rgb(255, 235, 205);
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }

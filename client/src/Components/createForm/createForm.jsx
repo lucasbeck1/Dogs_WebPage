@@ -325,7 +325,7 @@ export default function CreateForm (){
                 id='NO LINK'
                 name={input.name? (input.name) : ('YOUR DOG')} 
                 img={input.image? (input.image) : (defaultImage)}
-                weight={(input.weight_min && input.weight_max)? ([input.weight_min, ' - ' , input.weight_max].join(' ')) : ('Min - Max')}
+                weight={(parseInt(input.weight_min) && parseInt(input.weight_max))? ([input.weight_min, ' - ' , input.weight_max].join(' ')) : ('Min - Max')}
                 temp={input.temperament.length > 0? (input.temperament.join(', ')) : ('Temperament')} 
                 ></Card>
             </div>

@@ -30,45 +30,38 @@ export default function Detail (props){
 
     return(
         <React.Fragment>
-            {idB === props.match.params.id ?
-            (<div>
-            
-                <Link to={`/home`} className={s.link}>
-                <div className={s.homeButton}>
+            <Link to='/home' className={s.link}>
+                <button className={s.homeButton}>
                     {Vectors.dogHouse}
-                    <span>Home</span>
+                    Back Home
+                </button>
+            </Link>
+            {idB === props.match.params.id ?
+            (<div className={s.page}>
+                <div className={s.upText}>
+                    <h2>{detailB.name}</h2>
                 </div>
-                </Link>
+                <img src={detailB.image? (detailB.image) : (defaultImage)} alt="Img Not Found" className={s.image}/>
+                <p className={s.description}>{detailB.temperament}</p>
 
-                <div className={s.page}>
-                    <div className={s.upText}>
-                        <h2>{detailB.name}</h2>
+                <div className={s.downText}>
+                    <div className={s.container}>
+                        {Vectors.life}
+                        <p>{detailB.life_span}</p>
                     </div>
-                    <img src={detailB.image? (detailB.image) : (defaultImage)} alt="Img Not Found" className={s.image}/>
-                    <p className={s.description}>{detailB.temperament}</p>
 
-                    <div className={s.downText}>
-                        <div className={s.container}>
-                            {Vectors.life}
-                            <p>{detailB.life_span}</p>
-                        </div>
+                    <div className={s.container}>
+                        {Vectors.height}
+                        <p>{detailB.height} cm</p>
+                    </div>
 
-                        <div className={s.container}>
-                            {Vectors.height}
-                            <p>{detailB.height} cm</p>
-                        </div>
-
-                        <div className={s.container}>
-                            {Vectors.weight}
-                            <p>{detailB.weight} Kg</p>
-                        </div>
+                    <div className={s.container}>
+                        {Vectors.weight}
+                        <p>{detailB.weight} Kg</p>
                     </div>
                 </div>
             </div>) 
             :  
-            (<div>
-                <Link to={`/home`} className={s.link}><p className={s.homeButton}>Home</p></Link>
-                <Loading loadImg={loader}/>
-            </div>)}
+            (<Loading loadImg={loader} smallImage={true}/>)}
         </React.Fragment>
     )};

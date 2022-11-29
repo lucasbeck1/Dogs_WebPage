@@ -20,7 +20,6 @@
     color:rgb(0, 0, 0);
     background-color:rgb(242, 191, 252);
     border: solid 2px wheat;
-    box-shadow: 20px;
 }
 
 .homeButton:active{
