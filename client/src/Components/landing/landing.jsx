@@ -15,6 +15,7 @@ export default function Landing(){
         dispatch(getTemperaments());
     },[dispatch]);
 
+
     return(
         <React.Fragment>
             <div className={s.pageContainer}>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { getBreeds, getTemperaments } from '../../Redux/actions';
 import Header from "../header/header";
+import Footer from "../footer/footer";
 import SideBar from "../sideBar/sideBar";
 import Card from "../card/card";
 import Paginated from "../paginated/paginated";
@@ -61,6 +62,8 @@ export default function Home(){
                 </div>
             </div>  
             ) : (<Loading loadImg={loadImage} smallImage={true}/>)}
+
+            <Footer/>
         </React.Fragment>
     )
 };

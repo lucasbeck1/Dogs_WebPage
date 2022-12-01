@@ -1,14 +1,15 @@
-// Transform this js in md
-/* # Project Upgrades
+// To Transform this js in md, change the file extension and uncomment.
+/* 
+# Project Upgrades
 
 __Front:__  
-favicon  
+favicon & page title
 Mod landing (waves css)
-Mod loading size svg
 footer redes
 mostrar de a 10 numeros  
-añadir idiomas (switch)  
-tema oscuro, colores:  
+añadir idioma español 
+tema oscuro (switch)
+colores sugeridos:  
     --chakra-colors-gray-50: #F7FAFC;  
     --chakra-colors-gray-100: #EDF2F7;  
     --chakra-colors-gray-200: #E2E8F0;  
@@ -40,4 +41,14 @@ railway - 500hs por mes
 render - a los 90 dias se cae la db y hay que crear una nueva - 1 solo proyecto 750hs/mes  
 netlify - Concurrent Builds (1)  
 glitch.io - 120hs de uso y mientras se edita activamente ?  
+*/
+
+
+
+/* 
+navigator
+navigator.language
+window.navigator.language
+
+navigator.browserLanguage    ---> undefined
  */
