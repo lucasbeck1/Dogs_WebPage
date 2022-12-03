@@ -1,0 +1,164 @@
+.homeButton{
+   color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    border: solid 2px wheat;
+    border-radius: 3px;
+    padding: 0.5rem;
+    width: 15rem;
+    margin: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.homeButton:hover{
+    color:rgb(0, 0, 0);
+    background-color:rgb(242, 191, 252);
+    border: solid 2px wheat;
+}
+
+.homeButton:active{
+    background-color:rgb(207, 110, 226);
+}
+
+
+.submittButton1{
+    color:rgb(0, 0, 0);
+    background-color:rgb(237, 187, 247);
+    border: 10px solid black;
+    border-radius: 3px;
+    width: 20rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submittButton1:hover{
+    color:rgb(0, 0, 0);
+    background-color:rgb(231, 145, 248);
+    box-shadow: 20px;
+}
+
+.btnTempON:active{
+    background-color:rgb(159, 68, 177);
+}
+
+
+.submittButton2{
+    color: #461b46;
+    background-color: rgb(139, 175, 175);
+    border: 10px solid black;
+    border-radius: 3px;
+    width: 20rem;
+    padding: 1rem;
+}
+
+
+
+
+
+.page{
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+   /*  border: 4px solid rgb(63, 0, 78); */
+    border: 4px solid  #ffcaff;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 30rem;
+    padding: 1rem;
+    background-color: rgb(255, 235, 205);
+    
+}
+
+
+.form input, textarea{
+    border:none;
+    border-color: rgb(4, 102, 189);
+    border-radius: 4px;
+}
+
+
+.textBold{
+    /* font-weight: bold; */
+    font-weight: 500;
+}
+
+.inputs1{
+    width: 20rem;
+}
+
+.inputs2{
+    width: 6rem;
+}
+
+
+
+.listTemp{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 10px;
+   /*  background-color: #2196F3; */    
+}
+
+
+.btnTempON{
+    width: 90%; 
+    color: #080708;
+    background-color: rgb(233, 194, 245);
+    border: 5px solid;
+    border-color: rgb(164, 60, 196);
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.btnTempON:hover{
+    color: #080708;
+    border: 5px solid;
+    border-color: rgb(211, 91, 248);
+    background-color: rgb(233, 194, 245);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btnTempON:active{
+    background-color:rgb(206, 154, 216);
+}
+
+
+
+
+.error{
+    color: rgb(233, 44, 85);
+}
+
+
+
+.dogPreview{
+    background-color: rgb(255, 235, 205);
+    width: 20rem;
+    height: 20rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    border: 4px solid  #ffcaff;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.reminder{
+    margin: 0 auto;
+    width: 30rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}

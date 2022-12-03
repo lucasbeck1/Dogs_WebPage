@@ -1,0 +1,13 @@
+/* Recordatorio: No Anda el module cuando no usamos clases o ids */
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    grid-gap: 2rem;
+    /*gap: 2rem;*/
+    justify-content: center;
+    padding: 20px 0;
+    right: 0px;
+    margin-left: 20%;
+}

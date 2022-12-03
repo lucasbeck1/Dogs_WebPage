@@ -3,10 +3,11 @@
 # Project Upgrades
 
 __Front:__  
-favicon & page title
 Mod landing (waves css)
-footer redes
+previsualizacion loading  
 mostrar de a 10 numeros  
+fondo en imagenes - Grade - Cors error  
+create form: ranges vertical y dinamicos  
 añadir idioma español 
 tema oscuro (switch)
 colores sugeridos:  
@@ -20,10 +21,7 @@ colores sugeridos:
     --chakra-colors-gray-700: #2D3748;  
     --chakra-colors-gray-800: #1A202C;  
     --chakra-colors-gray-900: #171923;  
-fondo en imagenes - Grade - Cors error  
 responsive  
-previsualizacion loading  
-create form: ranges vertical y dinamicos  
 clases para los colores y botones  
 
 __Back:__  

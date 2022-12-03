@@ -1,4 +1,4 @@
-.header{
+.footer{
     margin-bottom: 0vh;
     padding-bottom: 0vh;
     display: flex;
@@ -15,21 +15,22 @@
     width: auto;
 }
 
-.header svg{
-    height: 2.2rem;
-    width: 2.2rem;
+
+.footer svg{
+    height: 1.8rem;
+    width: 1.8rem;
 }
 
-.header a{
+.footer a{
     text-decoration: none;
 }
 
-.header a:link, a:visited {
+.footer a:link, a:visited {
     color: rgb(63, 56, 44);
     text-decoration: none;
 }
   
-.header a:link:active, a:visited:active {
+.footer a:link:active, a:visited:active {
     color: rgb(250, 214, 146);;
 }
 
@@ -44,3 +45,8 @@ padding-top: 0px;
 margin-top: 0.8rem;
 }
 
+.textBold{
+    font-weight: 600;
+    padding-top: 0px;
+    margin-top: 0.8rem;
+}

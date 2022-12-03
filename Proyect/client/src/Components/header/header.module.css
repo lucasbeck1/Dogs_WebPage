@@ -1,0 +1,38 @@
+.header{
+    background-color: rgba(125, 126, 97, 0.555);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.header h2{
+    color: rgb(250, 214, 146);
+    margin-right: 4.5rem;
+}
+
+.header input{
+    border: solid 2px wheat;
+    height: 1.5rem;
+}
+
+.btn{
+    color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    border: solid 2px wheat;
+    border-radius: 3px;
+    margin: 0.2rem;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    color:rgb(0, 0, 0);
+    background-color:rgb(242, 191, 252);
+}
+
+.btn:active{
+    background-color:rgb(207, 110, 226);
+}

@@ -5,14 +5,18 @@ import Vectors from '../../Assets/vectors.js'
 import s from "./footer.module.css";
 
 
-export default function Footer ({currentPage}) {
+export default function Footer () {
 
   return(
     <React.Fragment>
-      <div className={s.header}>
-        <p className={s.text}>Made by <b>Lucas Beckford</b></p>
+      <div className={s.footer}>
+        <div>
+          <span className={s.text}>Made by </span>
+          <span className={s.textBold}>Lucas Beckford</span>
+        </div>
+
         <div className={s.links}>
-          <a href='https://github.com/lucasbeck1/' target='blank'>
+          <a href='https://github.com/' target='blank'>
           {Vectors.git}     
           </a>
           <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank'>

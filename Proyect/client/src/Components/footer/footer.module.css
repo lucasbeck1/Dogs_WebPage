@@ -1,0 +1,52 @@
+.footer{
+    margin-bottom: 0vh;
+    padding-bottom: 0vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 10.5vh;
+    color: rgb(63, 56, 44);
+    text-decoration: none;
+    background-color: rgba(125, 126, 97, 0.404);
+    position:relative;
+    width: auto;
+}
+
+
+.footer svg{
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.footer a{
+    text-decoration: none;
+}
+
+.footer a:link, a:visited {
+    color: rgb(63, 56, 44);
+    text-decoration: none;
+}
+  
+.footer a:link:active, a:visited:active {
+    color: rgb(250, 214, 146);;
+}
+
+.links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.text{
+padding-top: 0px;
+margin-top: 0.8rem;
+}
+
+.textBold{
+    font-weight: 600;
+    padding-top: 0px;
+    margin-top: 0.8rem;
+}
