@@ -45,7 +45,9 @@ async function breedsFromDB(){
             model: Temperament,
             attribute: ['name'],
             through: {attributes: []}
-        }
+        },
+        //raw: true, // Para que muestre la info en forma de objeto, y poder modificarla en caso de ser necesario
+        //nest: true, // Para que incluya, en forma de objeto las asociaciones(cada valor de estos por separado)
     });
 
     let br1 = JSON.stringify(br);
@@ -147,7 +149,14 @@ router.post('/dogs', async function(req,res,next){
 });
 
 
+router.delete('/dogs', async function(req,res,next){
+    const {id} = req.body;
+    let delItem = await Breed.findOne({where: { id: id }});  // null si no lo encuentra
+    delItem.destroy();
 
+    if(!delItem) return res.status(400).send('Error, breed not found to delete');
+    return res.status(200).send('Item deleted successfully');
+});
 
 
 

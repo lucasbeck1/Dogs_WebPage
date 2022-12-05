@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import defaultImage from "../../Assets/dog-cartoon-1.webp"
+import defaultImage from "../../Assets/dog-cartoon-1.webp";
 import s from "./card.module.css";
 
 

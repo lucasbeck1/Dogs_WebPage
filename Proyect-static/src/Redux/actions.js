@@ -19,7 +19,7 @@ export function getBreeds(){
 
 
 export function getBreedsByName(name){
-    let dogs2 = dogs.find(d => d.name === name);
+    let dogs2 = dogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
 
     return (async function(dispatch){
        dispatch({type: GET_BREEDS_BYNAME, payload: dogs2});

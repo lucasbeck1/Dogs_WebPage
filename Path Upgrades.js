@@ -5,7 +5,8 @@
 __Front:__  
 Mod landing (waves css)
 previsualizacion loading  
-mostrar de a 10 numeros  
+mostrar de a 10 numeros
+opción de elegir default image  
 fondo en imagenes - Grade - Cors error  
 create form: ranges vertical y dinamicos  
 añadir idioma español 
@@ -31,8 +32,7 @@ eliminar razas,
 autorizacion,  
 
 __Deploy:__  
-BrowserRouter o HashRouter ?
-Advertencia footer  
+BrowserRouter o HashRouter ?  
 github - solo static  
 vercel - Concurrent Builds (1)  
 railway - 500hs por mes  
