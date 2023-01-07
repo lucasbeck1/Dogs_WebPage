@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail, clearDetail } from "../../Redux/actions"
+import { getDetail, clearDetail } from "../../Redux/actions";
 import Loading from "../loading/loading";
 import defaultImage from "../../Assets/dog-cartoon-1.webp";
 import loader from "../../Assets/loader-9.gif";

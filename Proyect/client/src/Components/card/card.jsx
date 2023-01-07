@@ -32,23 +32,23 @@ export default function Card({id, name, img, weight, temp}){
         id === 'NO LINK' ?
         (
         <div key={id} className={s.cardStatic}>
-            <img src={img? (img) : (defaultImage)} alt='Dog'className={s.image}/>
-            <h4>{name}</h4>
-            <p>{weight} Kg</p>
-            <p>{temp}</p>
+          <img src={img? (img) : (defaultImage)} alt='Dog'className={s.image}/>
+          <h4>{name}</h4>
+          <p>{weight} Kg</p>
+          <p>{temp}</p>
         </div>
         )
         : 
         (
         <Link to={`/detail/${id}`} className={s.det}>
-            <div key={id} className={s.card}>
-                <div key={id} className='gradient-wrap' style={styleDiv}>
-                    <img src={img? img: (defaultImage)} alt='Dog' className={s.image} cross-origin="anonymous" key={img}/>
-                </div>
-                <h4>{name}</h4>
-                <p>{weight} Kg</p>
-                <p>{temp}</p>
+          <div key={id} className={s.card}>
+            <div key={id} className='gradient-wrap' style={styleDiv}>
+              <img src={img? img: (defaultImage)} alt='Dog' className={s.image} cross-origin="anonymous" key={img}/>
             </div>
+            <h4>{name}</h4>
+            <p>{weight} Kg</p>
+            <p>{temp}</p>
+          </div>
         </Link>
         )
     );
