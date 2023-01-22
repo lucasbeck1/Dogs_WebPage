@@ -23,7 +23,8 @@ colores sugeridos:
     --chakra-colors-gray-800: #1A202C;  
     --chakra-colors-gray-900: #171923;  
 responsive  
-clases para los colores y botones  
+clases para los colores y botones
+diseñar y animar logo landing
 
 __Back:__  
 romper form por javascript - En static no pude  
@@ -31,7 +32,8 @@ test
 eliminar razas,  
 autorizacion,  
 
-__Deploy:__  
+__Deploy:__ 
+Documentación
 BrowserRouter o HashRouter ?  
 github - solo static  
 vercel - Concurrent Builds (1)  

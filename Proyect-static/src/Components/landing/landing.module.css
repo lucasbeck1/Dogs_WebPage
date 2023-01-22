@@ -9,14 +9,23 @@
     top: 0;
 }
 
+
+/* 
+@media only screen and (max-width: 600px) {
+    
+    .pageContainer{
+        background-size: contain;
+  }
+} 
+*/
+
 .textContainer{
     background-color: rgba(245, 222, 179, 0.685);
     border-radius: 10px;
-    margin-top: 5vw;
-    margin-left: 40vw;
+    margin: 2rem auto;
     padding-top: 2rem;
-    width: 20vw;
-    height: 20vh;
+    width: 20rem;
+    height: 14rem;
     color: rgb(63, 56, 44);
 }
 

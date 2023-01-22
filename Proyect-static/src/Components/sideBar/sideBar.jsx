@@ -68,8 +68,8 @@ export default function SideBar({CurrentPage}){
             <label htmlFor='weight'>Weight</label>
             <select id='weight' onChange={(e) => orderDogs(e)} defaultValue={'DEFAULT'}>
                 <option value='DEFAULT' disabled>Weight</option>
-                <option value='High weight'>High Weight</option>
                 <option value='Low weight'>Low Weight</option>
+                <option value='High weight'>High Weight</option>
             </select>
         </div>
         </>

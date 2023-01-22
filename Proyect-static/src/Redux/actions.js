@@ -9,20 +9,20 @@ export const GET_DETAIL = 'GET_DETAIL';
 export const CLEAR_DETAIL = 'CLEAR_DETAIL';
 export const CREATE = 'CREATE';
 
-
+let dogsCopy = dogs.slice()
 
 export function getBreeds(){
     return (async function(dispatch){
-        dispatch({type: GET_BREEDS, payload: dogs})     
+        dispatch({type: GET_BREEDS, payload: dogsCopy})     
     })
 };
 
 
 export function getBreedsByName(name){
-    let dogs2 = dogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
+    let dogsFilter = dogsCopy.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
 
     return (async function(dispatch){
-       dispatch({type: GET_BREEDS_BYNAME, payload: dogs2});
+       dispatch({type: GET_BREEDS_BYNAME, payload: dogsFilter});
     })
 };
 
@@ -53,22 +53,21 @@ export function filters(payload){
 
 
 
-export function createBreed(payload){
-    let dogId = 500
-    let dogs2 = [...dogs,
-    {
-    id: (dogId++).toString(),
-    name: payload.name,
-    image: payload.image,
-    height: payload.height,
-    weight: payload.weight,
-    life_span: payload.life_span,
-    temperament: payload.temperament,
-    createdInDatabase: true
-    }]
-  
+export function createBreed(info){
+    let newID =  new Date().toString();
+    dogsCopy.push({
+        id: newID,
+        name: info.name,
+        image: info.image,
+        height: info.height,
+        weight: info.weight,
+        life_span: info.life_span,
+        temperament: info.temperament,
+        createdInDatabase: true
+    });
+    
     return (async function(dispatch){
-        dispatch({type: CREATE, payload: dogs2})     
+        dispatch({type: CREATE, payload: dogsCopy})     
     })
 };
 

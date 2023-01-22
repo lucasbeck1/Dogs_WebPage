@@ -1721,15 +1721,15 @@
         createdInDatabase: false
       },
       {
-        id: '792bfd0f-0c5b-4792-b8e4-3972581883a9',
-        name: 'z_TEST_Perritos que se rascan la patitas',
-        height: '1 - 100',
-        weight: '1 - 100',
-        life_span: '100 years',
-        image: 'https://cdn.pixabay.com/photo/2016/02/18/18/37/puppy-1207816_960_720.jpg',
-        createdInDatabase: true,
-        temperament: 'Active, Loyal'
-      }
+        id: 265,
+        name: 'Maltes',
+        height: '20 - 35',
+        weight: '2 - 10',
+        life_span: '15 - 18 years',
+        image: 'https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_960_720.jpg',
+        temperament: 'Playful, Docile, Fearless, Affectionate, Sweet-Tempered, Lively, Responsive, Easygoing, Gentle, Intelligent, Active',
+        createdInDatabase: false       
+      },
     ];
  
     export let temperament = [

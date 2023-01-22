@@ -40,7 +40,7 @@ export default function Header ({currentPage}) {
                         </button>
                     </form>
                 </div>
-                <h2>Lucky DOG</h2>
+                <h2>Dogui Pedia</h2>
                 <div>
                     <Link to='/'><button className={s.btn}>To Landing</button></Link>
                     <Link to='/create'>
