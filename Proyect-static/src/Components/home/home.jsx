@@ -51,13 +51,12 @@ export default function Home(){
                     nextSelect={nextPage} 
                     />
                     <div className={s.content}> 
-                    <SideBar CurrentPage={setCurrentPage}/>
-                    <div className={s.list}>
-                        {currentCards.map(b=>{return(
-                            <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
-                        )})}
-                    </div>
-                    
+                        <SideBar CurrentPage={setCurrentPage}/>
+                        <div className={s.list}>
+                            {currentCards.map(b=>{return(
+                                <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
+                            )})}
+                        </div>
                     </div>
                 </div>  
                 ) : 

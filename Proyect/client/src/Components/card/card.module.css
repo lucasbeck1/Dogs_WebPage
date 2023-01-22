@@ -12,6 +12,7 @@
     width: 340px;
     height: auto;
     color: rgb(63, 56, 44);
+    transition: .4s;
 }
 
 .card:hover{
