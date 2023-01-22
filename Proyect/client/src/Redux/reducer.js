@@ -1,4 +1,4 @@
-import { GET_BREEDS, GET_BREEDS_BYNAME, GET_TEMPERAMENTS, ORDER_BREEDS, FILTER_BREEDS, GET_DETAIL, CLEAR_DETAIL } from './actions';
+import { GET_BREEDS, GET_BREEDS_BYNAME, GET_TEMPERAMENTS, ORDER_BREEDS, FILTER_BREEDS, GET_DETAIL, CLEAR_DETAIL, CREATE_OFFLINE } from './actions';
 
 let initialState = {
     breeds: [],
@@ -11,12 +11,11 @@ export default function rootReducer(state=initialState, action){
     switch(action.type){
         case GET_BREEDS: return({...state, breeds: action.payload, allbreeds: action.payload}); 
         
+        case CREATE_OFFLINE: return({...state, breeds: action.payload, allbreeds: action.payload});
+        
         case GET_BREEDS_BYNAME: return({...state, breeds: action.payload}); 
         
-        case GET_TEMPERAMENTS: 
-            let data1 = action.payload.map(t=>t.name);
-            data1 = data1.sort();
-            return({...state, temperaments: data1});
+        case GET_TEMPERAMENTS: return({...state, temperaments: action.payload});
 
         case FILTER_BREEDS:
             let actualbreeds = state.allbreeds.slice();
