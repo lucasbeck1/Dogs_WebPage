@@ -1728,7 +1728,7 @@
         life_span: '15 - 18 years',
         image: 'https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_960_720.jpg',
         temperament: 'Playful, Docile, Fearless, Affectionate, Sweet-Tempered, Lively, Responsive, Easygoing, Gentle, Intelligent, Active',
-        createdInDatabase: false       
+        createdInDatabase: true       
       },
     ];
  

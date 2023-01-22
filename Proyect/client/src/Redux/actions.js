@@ -6,7 +6,6 @@ export const FILTER_BREEDS = 'FILTER_BREEDS';
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
 export const GET_DETAIL = 'GET_DETAIL';
 export const CLEAR_DETAIL = 'CLEAR_DETAIL';
-export const CREATE_OFFLINE = 'CREATE_OFFLINE';
 
 
 let dogsCopy = dogs.slice()
@@ -92,7 +91,8 @@ export function createBreed(info){
         })
         .then(function(res){ console.log(res) })
         .catch(function(error){
-            let newID =  new Date().toString();
+            let date =  Date.now();
+            let newID = Math.ceil(date / (Math.floor(Math.random()*1000)));
             dogsCopy.push({
                 id: newID,
                 name: info.name,
@@ -102,8 +102,7 @@ export function createBreed(info){
                 life_span: info.life_span,
                 temperament: info.temperament.join(", "),
                 createdInDatabase: true
-            });
-            dispatch({type: CREATE_OFFLINE, payload: dogsCopy})     
+            });  
         })
     });
 };
