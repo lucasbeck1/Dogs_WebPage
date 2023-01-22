@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBreeds, filters, orders } from '../../Redux/actions';
-
 import Vectors from '../../Assets/vectors.js'
 import s from "./sideBar.module.css";
 
@@ -68,8 +67,8 @@ export default function SideBar({CurrentPage}){
             <label htmlFor='weight'>Weight</label>
             <select id='weight' onChange={(e) => orderDogs(e)} defaultValue={'DEFAULT'}>
                 <option value='DEFAULT' disabled>Weight</option>
-                <option value='High weight'>High Weight</option>
                 <option value='Low weight'>Low Weight</option>
+                <option value='High weight'>High Weight</option>
             </select>
         </div>
         </>

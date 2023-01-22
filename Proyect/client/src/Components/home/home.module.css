@@ -1,4 +1,9 @@
 /* Recordatorio: No Anda el module cuando no usamos clases o ids */
+.content{
+    display: flex;
+    flex-direction: row;
+    
+}
 
 .list{
     display: flex;
@@ -7,7 +12,19 @@
     grid-gap: 2rem;
     /*gap: 2rem;*/
     justify-content: center;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     right: 0px;
-    margin-left: 20%;
+}
+
+
+@media only screen and (max-width: 590px) {
+    /* For small mobile phones: */
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+  }
 }

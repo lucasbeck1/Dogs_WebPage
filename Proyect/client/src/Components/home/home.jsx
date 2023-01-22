@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { getBreeds, getTemperaments } from '../../Redux/actions';
 import Header from "../header/header";
 import Footer from "../footer/footer";
@@ -9,7 +8,6 @@ import Card from "../card/card";
 import Paginated from "../paginated/paginated";
 import Loading from "../loading/loading"
 import loadImage from "../../Assets/loader-10.gif";
-
 import s from "./home.module.css";
 
 
@@ -42,27 +40,29 @@ export default function Home(){
     return(
         <React.Fragment>
             <Header currentPage={setCurrentPage}/>
-            <SideBar CurrentPage={setCurrentPage}/>
-
             {allbreeds.length? (
-            <div>
-                <Paginated 
-                dogsTotal={breeds.length} 
-                dogsPage={cardsPerPage} 
-                actualPage={parseInt(currentPage)}
-                select={changePage} 
-                prevSelect={previousPage}
-                nextSelect={nextPage} 
-                />
-
-                <div className={s.list}>
-                    {currentCards.map(b=>{return(
-                        <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
-                    )})}
-                </div>
-            </div>  
-            ) : (<Loading loadImg={loadImage} smallImage={true}/>)}
-
+                <div>
+                    <Paginated 
+                    dogsTotal={breeds.length} 
+                    dogsPage={cardsPerPage} 
+                    actualPage={parseInt(currentPage)}
+                    select={changePage} 
+                    prevSelect={previousPage}
+                    nextSelect={nextPage} 
+                    />
+                    <div className={s.content}> 
+                    <SideBar CurrentPage={setCurrentPage}/>
+                    <div className={s.list}>
+                        {currentCards.map(b=>{return(
+                            <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
+                        )})}
+                    </div>
+                    
+                    </div>
+                </div>  
+                ) : 
+                (<Loading loadImg={loadImage} smallImage={true}/>)
+            }
             <Footer/>
         </React.Fragment>
     )

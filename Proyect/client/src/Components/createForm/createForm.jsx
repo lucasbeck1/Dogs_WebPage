@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { createBreed, getBreeds } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-
 import Card from "../card/card";
 import defaultImage from "../../Assets/dog-cartoon-1.webp";
 import Vectors from '../../Assets/vectors.js';
-
 import s from "./createForm.module.css";
 
 

@@ -1,10 +1,8 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getBreedsByName } from '../../Redux/actions';
 import Vectors from '../../Assets/vectors.js'
-
 import s from "./header.module.css";
 
 

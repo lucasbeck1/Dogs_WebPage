@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBreeds, filters, orders } from '../../Redux/actions';
-
 import Vectors from '../../Assets/vectors.js'
 import s from "./sideBar.module.css";
 

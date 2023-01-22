@@ -1,17 +1,18 @@
 .footer{
-    margin-bottom: 0vh;
-    padding-bottom: 0vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    margin-top: 10.5vh;
+    margin-top: 7.6rem;
+    /* margin-top: 19.3rem; */
+    margin-bottom: 0vh;
+    padding-bottom: 0vh;
     color: rgb(63, 56, 44);
     text-decoration: none;
     background-color: rgba(125, 126, 97, 0.404);
-    position:relative;
+    position: relative;
     width: auto;
 }
 

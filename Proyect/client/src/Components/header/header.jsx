@@ -1,10 +1,8 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getBreedsByName } from '../../Redux/actions';
 import Vectors from '../../Assets/vectors.js'
-
 import s from "./header.module.css";
 
 
@@ -40,7 +38,7 @@ export default function Header ({currentPage}) {
                         </button>
                     </form>
                 </div>
-                <h2>Lucky DOG</h2>
+                <h2>Dogui Pedia</h2>
                 <div>
                     <Link to='/'><button className={s.btn}>To Landing</button></Link>
                     <Link to='/create'>
