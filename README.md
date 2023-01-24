@@ -3,7 +3,7 @@
 # Individual Project - Henry Dogs
 <!-- 
 <img height="200" src="./dog.png" /> -->
-![HenryLogo](./Proyect/Muestra.png)
+![HenryLogo](./Muestra.png)
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
