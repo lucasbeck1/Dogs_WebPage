@@ -16,7 +16,7 @@ export default function Footer () {
         </div>
 
         <div className={s.links}>
-          <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank'>
+          <a href='https://lucasbeck1.github.io/Portfolio/'target='blank'>
           {Vectors.person}   
           </a>
           <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank'>

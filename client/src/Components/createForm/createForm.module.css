@@ -4,7 +4,7 @@
     border: solid 2px wheat;
     border-radius: 3px;
     padding: 0.5rem;
-    width: 15rem;
+    max-width: 15rem;
     margin: 1rem;
     cursor: pointer;
     transition: 0.3s;

@@ -1,6 +1,7 @@
 .footer{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
     padding-right: 1rem;
@@ -32,7 +33,7 @@
 }
   
 .footer a:link:active, a:visited:active {
-    color: rgb(250, 214, 146);;
+    color: rgb(250, 214, 146);
 }
 
 .links{
