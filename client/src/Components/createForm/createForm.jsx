@@ -265,7 +265,7 @@ export default function CreateForm (){
                     type='url'
                     value={input.image}
                     name='image'
-                    placeholder='http//www...'
+                    placeholder='http://www...'
                     onChange={e => handleChange(e)}
                     className={s.inputs1}
                     />

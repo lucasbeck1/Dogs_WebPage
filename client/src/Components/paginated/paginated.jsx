@@ -16,11 +16,11 @@ export default function Paginated({dogsTotal, dogsPage, select, nextSelect, prev
     return(
         <React.Fragment>
             <nav className={s.nav}>
-                <button onClick={()=>prevSelect()} className={s.number}>{'<'}</button>
+                <button onClick={()=>prevSelect()} className={s.number} title="previous">{'<'}</button>
                 {pageNumbers?.map( number => { return(
                     <button onClick={()=>select(number)} key={number} className={number === actualPage? (s.numberSelected) : (s.number)}>{number}</button>
                 )})}
-                <button onClick={()=>nextSelect(pageNumbers[pageNumbers.length-1])} className={s.number}>{'>'}</button>
+                <button onClick={()=>nextSelect(pageNumbers[pageNumbers.length-1])} className={s.number} title="next">{'>'}</button>
             </nav>
         </React.Fragment>
     )
