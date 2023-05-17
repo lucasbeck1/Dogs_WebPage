@@ -4,7 +4,6 @@
 
 __Front:__  
 cuando carga el home, incrementar el margin top del footer  
-Actualizar Links footer  
 previsualizacion loading  
 mostrar de a 10 numeros (redondos quedan bien)  
 opción de elegir default image  
