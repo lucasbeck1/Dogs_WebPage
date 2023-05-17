@@ -24,13 +24,13 @@ export default function Footer () {
          </div>
  
          <div className={s.links}>
-          <a href='https://lucasbeck1.github.io/Portfolio/'target='blank'>
+          <a href='https://lucasbeck1.github.io/Portfolio/'target='blank' title={"Go to my website"}>
            {Vectors.person}   
           </a>
-          <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank'>
+          <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank' title={"Go to my linkedin profile"}>
            {Vectors.linkedIn}   
           </a>
-          <a href='https://github.com/lucasbeck1' target='blank'>
+          <a href='https://github.com/lucasbeck1' target='blank' title={"Go to my github profile"}>
            {Vectors.git}
           </a>
          </div>
@@ -44,13 +44,13 @@ export default function Footer () {
         </div>
 
         <div className={s.links}>
-          <a href='https://lucasbeck1.github.io/Portfolio/'target='blank'>
+          <a href='https://lucasbeck1.github.io/Portfolio/'target='blank' title={"Go to my website"}>
            {Vectors.person}   
           </a>
-          <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank'>
+          <a href='https://www.linkedin.com/in/lucas-jbec/'target='blank' title={"Go to my linkedin profile"}>
            {Vectors.linkedIn}   
           </a>
-          <a href='https://github.com/lucasbeck1' target='blank'>
+          <a href='https://github.com/lucasbeck1' target='blank' title={"Go to my github profile"}>
            {Vectors.git}
           </a>
         </div>

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBreedsByName } from '../../Redux/actions';
 import Vectors from '../../Assets/vectors.js'
@@ -40,8 +40,13 @@ export default function Header ({currentPage}) {
         <React.Fragment>
             {smallScreen ? (
             <div className={s.headerSmall}>
-                 <h2 className={s.titleSmall}>Dogui Pedia</h2>
-                 <div>
+                <NavLink
+                style={{ textDecoration: "none", color: "inherit" }}
+                to={`/`}
+                >
+                    <h2 className={s.titleSmall}>Dogui Pedia</h2>
+                </NavLink>
+                <div>
                     <Link to='/'><button className={s.btn}>To Landing</button></Link>
                     <Link to='/create'>
                         <button className={s.btn}>
@@ -68,7 +73,12 @@ export default function Header ({currentPage}) {
                         </button>
                     </form>
                 </div>
-                <h2 className={s.title}>Dogui Pedia</h2>
+                <NavLink
+                style={{ textDecoration: "none", color: "inherit" }}
+                to={`/`}
+                >
+                    <h2 className={s.titleSmall}>Dogui Pedia</h2>
+                </NavLink>
                 <div>
                     <Link to='/'><button className={s.btn}>To Landing</button></Link>
                     <Link to='/create'>

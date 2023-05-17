@@ -21,7 +21,7 @@ export default function Landing(){
                     <h2>Dogui Pedia</h2>
                     <h4>The Dog Breeds Encyclopedia</h4>
                     <Link to='/home' >
-                        <button className={s.btnStart}>START</button>
+                        <button className={s.btnStart}>Get Started</button>
                     </Link>
                 </div>
             </div>
