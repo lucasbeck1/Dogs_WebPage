@@ -2,8 +2,7 @@
 /* 
 # Project Upgrades
 
-__Front:__  
-cuando carga el home, incrementar el margin top del footer  
+__Front:__   
 previsualizacion loading  
 mostrar de a 10 numeros (redondos quedan bien)  
 opción de elegir default image  
@@ -13,7 +12,7 @@ añadir idioma español
 clases para los colores y botones
 diseñar y animar logo landing (waves css)  
 responsive fondo landing    
-responsive form y home  
+responsive form preview y home  
 tema oscuro (switch) ( * )  
 
 __Back:__  
