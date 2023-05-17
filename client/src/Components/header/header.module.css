@@ -7,12 +7,27 @@
     padding-left: 1rem;
 }
 
-.header h2{
+.headerSmall{
+    background-color: rgba(125, 126, 97, 0.555);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.title{
     color: rgb(250, 214, 146);
     margin-right: 4.5rem;
 }
 
-.header input{
+.titleSmall{
+    color: rgb(250, 214, 146);
+}
+
+.input{
     border: solid 2px wheat;
     height: 1.5rem;
 }

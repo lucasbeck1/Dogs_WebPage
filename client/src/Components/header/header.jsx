@@ -12,6 +12,8 @@ export default function Header ({currentPage}) {
     const allbreeds = useSelector(state => state.allbreeds);
 
     const [name, setName] = useState('');
+    const [smallScreen, setSmallScreen] = useState(false);
+    const [start, setStart] = useState(true);
 
     async function search(e){
         e.preventDefault();
@@ -27,18 +29,46 @@ export default function Header ({currentPage}) {
     };
 
 
+
+    if(window.screen.availWidth <= 590 && smallScreen !== true && start === true){
+        setSmallScreen(true);
+        setStart(false);
+    };
+
+
     return(
         <React.Fragment>
+            {smallScreen ? (
+            <div className={s.headerSmall}>
+                 <h2 className={s.titleSmall}>Dogui Pedia</h2>
+                 <div>
+                    <Link to='/'><button className={s.btn}>To Landing</button></Link>
+                    <Link to='/create'>
+                        <button className={s.btn}>
+                            New {Vectors.dog}
+                            {Vectors.add}
+                        </button>
+                    </Link>
+               
+                    <form>
+                        <input className={s.input} id='SearchInput' type='text' onChange={e => setName(e.target.value)} placeholder="Search..."/>
+                        <button  onClick={e => search(e)} type="submit" className={s.btn}>
+                        {Vectors.search}
+                        </button>
+                    </form>
+                </div>  
+            </div>
+            ) : (
             <div className={s.header}>
                 <div>
                     <form>
-                        <input id='SearchInput' type='text' onChange={e => setName(e.target.value)} placeholder="Search..."/>
+                        <input className={s.input} id='SearchInput' type='text' onChange={e => setName(e.target.value)} placeholder="Search..."/>
                         <button  onClick={e => search(e)} type="submit" className={s.btn}>
                         {Vectors.search}
                         </button>
                     </form>
                 </div>
-                <h2>Dogui Pedia</h2>
+                <h2 className={s.title}>Dogui Pedia</h2>
                 <div>
                     <Link to='/'><button className={s.btn}>To Landing</button></Link>
                     <Link to='/create'>
@@ -49,6 +79,8 @@ export default function Header ({currentPage}) {
                     </Link>
                 </div>
             </div>
+            )}
+            
         </React.Fragment>
     )
 };

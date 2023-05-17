@@ -3,7 +3,6 @@
 }
 
 
-
 .homeButton{
     color:rgb(0, 0, 0);
     background-color:rgb(255, 255, 255);
@@ -37,6 +36,12 @@
 }
 
 
+.image{
+    width: 90%;
+    height: 32vw;
+    border: 5px solid #ffcaff;
+    border-radius: 10px;
+}
 
 
 
@@ -70,16 +75,6 @@
     width: 2rem;
 }
 
-.image{
-    width: 90%;
-    height: 32vw;
-    border: 5px solid #ffcaff;
-    border-radius: 10px;
-
-}
-
-
-
 
 .description{
     color: rgb(85, 78, 66);
@@ -87,4 +82,59 @@
     margin-right: 5%;
     text-align: center;
     padding-bottom: 3%;
+}
+
+
+
+@media only screen and (max-width: 690px) {
+    /* For small mobile phones: */
+    .page{
+        background-color: rgba(255, 228, 196, 0.664);
+        border-radius: 20px;
+        width: 90%;   
+        margin: 0 auto;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+    }
+    .image{
+        width: 90%;
+        height: 50vw;
+        border: 5px solid #ffcaff;
+        border-radius: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 490px) {
+    /* For small mobile phones: */
+    .page{
+        background-color: rgba(255, 228, 196, 0.664);
+        border-radius: 20px;
+        width: 100%;   
+        margin: 0 auto;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+    }
+    .image{
+        width: 90%;
+        height: 55vw;
+        border: 5px solid #ffcaff;
+        border-radius: 10px;
+    }
+
+}
+
+
+@media only screen and (max-width: 350px) {
+    /* For small mobile phones: */
+    .downText{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 5%;
+        margin-right: 5%;
+        color: rgb(85, 78, 66);
+        text-align: start;
+    }
+
 }
