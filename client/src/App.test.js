@@ -13,7 +13,7 @@ test('Render START button', () => {
       <App />
     </Provider>
   );
-  const linkElement = screen.getByText(/START/i);
+  const linkElement = screen.getByText(/Get Started/i);
   expect(linkElement).toBeInTheDocument();
 });
 
@@ -26,7 +26,7 @@ test('Render Header Title', () => {
       </Router>
     </Provider>
   );
-  const linkElement = screen.getByText(/Lucky DOG/i);
+  const linkElement = screen.getByText(/Dogui Pedia/i);
   expect(linkElement).toBeInTheDocument();
 });
 
@@ -35,10 +35,10 @@ test('Render Card Sample', () => {
   render(
     <Provider store={store}>
       <Router>
-        <Card name='Caniche'/>
+        <Card name='Lucky Dogui'/>
       </Router>
     </Provider>
   );
-  const linkElement = screen.getByText(/Caniche/i);
+  const linkElement = screen.getByText(/Lucky Dogui/i);
   expect(linkElement).toBeInTheDocument();
 });

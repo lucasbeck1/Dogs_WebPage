@@ -7,14 +7,15 @@ export default function Paginated({dogsTotal, dogsPage, select, nextSelect, prev
     for (let i = 1; i <= Math.ceil(dogsTotal/dogsPage); i++) {
         pageNumbers.push(i)
     };
-    /* Calc aux 
-    if dogs = 172
-    dog per page = 8
-    172/8 = 21.5 --> 22
-    pageNumber = [1,2,3,4, ... ,22] */
+    
+    let firstInPage = actualPage * 8 - 7;
+    let lastInPage = actualPage * 8;
+    if(lastInPage > dogsTotal) lastInPage = dogsTotal;
+
     
     return(
         <React.Fragment>
+            <p className={s.text}>{firstInPage} - {lastInPage} of {dogsTotal}</p>
             <nav className={s.nav}>
                 <button onClick={()=>prevSelect()} className={s.number} title="previous">{'<'}</button>
                 {pageNumbers?.map( number => { return(
@@ -22,6 +23,7 @@ export default function Paginated({dogsTotal, dogsPage, select, nextSelect, prev
                 )})}
                 <button onClick={()=>nextSelect(pageNumbers[pageNumbers.length-1])} className={s.number} title="next">{'>'}</button>
             </nav>
+           
         </React.Fragment>
     )
 };

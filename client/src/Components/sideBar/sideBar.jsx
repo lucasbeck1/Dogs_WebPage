@@ -46,8 +46,8 @@ export default function SideBar({CurrentPage}){
             <select id='storage' onChange={(e) => filterDogs(e)} defaultValue={'DEFAULT'}>
                 <option value='DEFAULT' disabled>Storage</option>
                 <option value='All'>All</option>
-                <option value='Api'>Api</option>
-                <option value='Db'>Library</option>
+                <option value='Api'>Library</option>
+                <option value='Db'>Added</option>
             </select>
             <label htmlFor='breeds'>Breeds</label>
             <select id='breeds' onChange={(e) => filterDogs(e)} defaultValue={'DEFAULT'}>

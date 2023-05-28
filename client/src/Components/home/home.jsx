@@ -43,15 +43,7 @@ export default function Home(){
                 <Header currentPage={setCurrentPage}/>
                 <>
                     {allbreeds.length? (
-                        <div>
-                            <Paginated 
-                            dogsTotal={breeds.length} 
-                            dogsPage={cardsPerPage} 
-                            actualPage={parseInt(currentPage)}
-                            select={changePage} 
-                            prevSelect={previousPage}
-                            nextSelect={nextPage} 
-                            />
+                        <div className={s.contentContainer}>
                             <div className={s.content}> 
                                 <SideBar CurrentPage={setCurrentPage}/>
                                 <div className={s.list}>
@@ -59,6 +51,16 @@ export default function Home(){
                                         <Card key={b.id} id={b.id} name={b.name} img={b.image} weight={b.weight} temp={b.temperament}/>
                                     )})}
                                 </div>
+                            </div>
+                            <div>
+                                <Paginated 
+                                dogsTotal={breeds.length} 
+                                dogsPage={cardsPerPage} 
+                                actualPage={parseInt(currentPage)}
+                                select={changePage} 
+                                prevSelect={previousPage}
+                                nextSelect={nextPage} 
+                                />
                             </div>
                         </div>  
                         ) : 
