@@ -28,9 +28,13 @@ export default function Landing(){
             </Link>
           </div>
           <div className={s.imageContainer}>
-            <img src={image1} alt="dogui" className={s.image}/>
-            <img src={image2} alt="dogui" className={s.image}/>
-            <img src={image3} alt="dogui" className={s.image}/>
+            <div className={s.imageRow1}>
+              <img src={image1} alt="dogui" className={s.image}/>
+              <img src={image2} alt="dogui" className={s.image}/>
+            </div>
+            <div>
+              <img src={image3} alt="dogui" className={s.image}/>
+            </div>
           </div>
         </div>
       </div>
