@@ -1,5 +1,5 @@
 .pageContainer{
-    /*  background-image: url("../../Assets/back-2.jpg"); */
+    background-image: url("../../Assets/back-2.jpg");
     text-align: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -7,10 +7,6 @@
     min-height: 100vh;
     overflow-x: hidden;
     top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 2rem auto;
 }
 
 
@@ -26,25 +22,13 @@
 .textContainer{
     background-color: rgba(245, 222, 179, 0.685);
     border-radius: 10px;
+    margin: 2rem auto;
     padding-top: 2rem;
     width: 20rem;
     height: 14rem;
     color: rgb(63, 56, 44);
 }
 
-.imageContainer{
-    background-color: rgba(245, 222, 179, 0.685);
-    border-radius: 10px;
-    padding-top: 2rem;
-    width: 20rem;
-    height: 14rem;
-    color: rgb(63, 56, 44);
-}
-
-.image{
-    width: 10rem;
-    height: 7rem;
-}
 
 
 .btnStart{
