@@ -1,5 +1,5 @@
 .homeButton{
-   color:rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
     background-color:rgb(255, 255, 255);
     border: solid 2px wheat;
     border-radius: 3px;
@@ -66,14 +66,12 @@
 .form{
     display: flex;
     flex-direction: column;
-   /*  border: 4px solid rgb(63, 0, 78); */
     border: 4px solid  #ffcaff;
     border-radius: 10px;
     margin: 0 auto;
     max-width: 30rem;
     padding: 1rem;
     background-color: rgb(255, 235, 205);
-    
 }
 
 
@@ -83,11 +81,6 @@
     border-radius: 4px;
 }
 
-
-.textBold{
-    /* font-weight: bold; */
-    font-weight: 500;
-}
 
 .inputs1{
     width: 65%;
@@ -133,12 +126,14 @@
 }
 
 
-
-
 .error{
     color: rgb(233, 44, 85);
 }
 
+
+.textBold{
+    font-weight: 500;
+}
 
 
 .dogPreview{
@@ -154,6 +149,10 @@
     margin: 0 auto;
     margin-top: 1rem;
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 520px) {
@@ -164,8 +163,8 @@
         max-height: 20rem;
         padding-top: 1rem;
         padding-bottom: 4rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0.1rem;
+        padding-right: 0.1rem;
         border: 4px solid  #ffcaff;
         border-radius: 10px;
         margin: 0 auto;

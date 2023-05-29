@@ -1,14 +1,9 @@
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 const { Router } = require('express');
 const axios = require ('axios');
 const { Breed, Temperament } = require ('../db.js');
 
-// Inicializo una instancia de express
+// Initialize an instance of express
 const router = Router();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 
 const { API_KEY } = process.env;
@@ -46,8 +41,8 @@ async function breedsFromDB(){
             attribute: ['name'],
             through: {attributes: []}
         },
-        //raw: true, // Para que muestre la info en forma de objeto, y poder modificarla en caso de ser necesario
-        //nest: true, // Para que incluya, en forma de objeto las asociaciones(cada valor de estos por separado)
+        //raw: true, // To show the info in the form of an object, and be able to modify it if necessary
+        //nest: true, // To include, in object form the associations (each value of these separately by properties)
     });
 
     let br1 = JSON.stringify(br);
@@ -98,7 +93,7 @@ async function createBreed (name, height, weight, life_span, image, temperament)
         });
         if(created){
             const tempDb = await Temperament.findAll({where: {name: temperament}});
-            //A newBreed le agregamos los temps //addTemperament => metodo de sequelize.
+            // We add temps to new Breed //addTemperament => method provided by sequelize.
             await instance.addTemperament(tempDb);
             return ('The Breed was successfully created');
         }else{
@@ -151,7 +146,7 @@ router.post('/dogs', async function(req,res,next){
 
 router.delete('/dogs', async function(req,res,next){
     const {id} = req.body;
-    let delItem = await Breed.findOne({where: { id: id }});  // null si no lo encuentra
+    let delItem = await Breed.findOne({where: { id: id }});  // null if it doesn't find it
     delItem.destroy();
 
     if(!delItem) return res.status(400).send('Error, breed not found to delete');

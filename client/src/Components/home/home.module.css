@@ -1,4 +1,4 @@
-/* Recordatorio: No Anda el module cuando no usamos clases o ids */
+/* Reminder: The module does not work when we do not use classes or ids */
 .page{
   min-height: 100vh;
   display: flex;
@@ -21,7 +21,6 @@
 .list{
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
   grid-gap: 2rem;
   /*gap: 2rem;*/
   justify-content: center;
